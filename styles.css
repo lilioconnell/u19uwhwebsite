@@ -1,0 +1,161 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root{
+    --brand-paper: rgb(202,206,202);
+    --brand-blue: rgb(54,62,89);
+}
+
+
+
+body{
+    background-image: url('images/uwhcover.jpeg');
+    font-family: 'Lekton', sans-serif;
+    font-size: 100%;
+    background-color: var(--brand-paper);
+}
+
+/* --- text ------*/
+.quote{
+    text-align: center;
+    font-size: 2em;
+    font-style: italic;
+    padding: 1em 1em;
+    background-color: rgb(61,43,61);
+    color: rgb(150,150,150);
+}
+
+.body-text{
+
+    font-size: 2em;
+    font-weight: 400;
+    text-align: left;
+}
+
+header{
+    font-size: 8em;
+    text-align: center;
+    font-weight: 800;
+    margin: 0;
+}
+
+h1{
+    font-size: 4em;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+}
+
+h2{
+    font-size: 3em;
+    text-align: left;
+    font-weight: 600;
+    margin: 0;
+}
+
+h3{
+    font-size: 2em;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* -- layout --- */
+
+.container-fluid{
+    border: 4px rgb(33,1,36);
+    padding:0;
+}
+
+.container-lg{
+    border: 4px rgb(33,1,36);
+    background-color: rgb(202,206,202);
+    overflow: auto;
+    margin-bottom: 1.5em;
+}
+
+.col-lg-4, col-lg-8{
+    border: 8px rgb(61,43,61) ;
+}
+
+/* Create two equal columns that floats next to each other */
+.col-container{
+    overflow: hidden;
+}
+.col{
+    box-sizing: border-box;
+    margin:  0.5em 0;
+    padding: 0.25em;
+    width: 100%;
+}
+
+/* -- images --- */
+.part-img{
+    max-width: 75%;
+    margin:auto;
+    display: block;
+}
+
+
+.footer-content{
+    background-color: var(--brand-blue);
+    text-align: center;
+    padding: 0.1em 0 0.1em 0;
+    color: rgb(202,206,202);
+}
+
+.footer-content p:first-child{
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+
+/* -- navigation --- */
+
+
+    .navbar{
+        --brand-blue-pale: rgb(54,62,89);
+        background-color: rgb(61,43,61);
+        border-bottom: 1px rgb(33,1,36);
+    }
+
+    .nav-item:hover{
+        background-color: var(--brand-blue-pale);
+    }
+
+    .nav-link{
+        font-size: 1.2em;
+        color: rgb(202,206,202);
+    }
+
+    .nav-link:hover{
+        color: rgb(202,206,202);
+    }
+
+    .btn-outline{
+        border: 1px rgb(202,206,202);
+        padding: 0 1em;
+    }
+
+    .btn-outline:hover{
+        background-color: var(--brand-blue-pale);
+    }
+
+@media only screen and (max-width: 768px) {
+
+    .body-text, .quote{
+        font-size:1.5em;
+    }
+    h1{
+        font-size:2em;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .part-img{
+        max-width: 100%;
+    }
+
+}
+
+
