@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Campaign Info
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="background-color: rgb(12,54,131);">
+  <img src="static/images/campaignbanner.jpg" alt="The squad at a recent camp" class="d-block" style="width:100%">
+</div>
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+<h1 style="color: rgb(12,54,131);"> Camp Details </h1>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+    <table class="table table-light table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Estimated Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>21st/22nd April</td>
+        <td>Auckland</td>
+        <td>$321</td>
+      </tr>
+      <tr class="table-primary">
+        <td>19th/20th July * SELECTION CAMP</td>
+        <td>Wellington</td>
+        <td>$272</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
+<h1 style="color: rgb(198,221,240);"> Register for April Camp </h1>
+
+  <form action="/action_page.php">
+
+    <div class="mb-3 mt-3">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        <span class="input-group-text">@example.com</span>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="needbillet" class="form-label">Will you need billeting?</label>
+      <select class="form-select" id="needbillet" name="needbillet" required>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+	<div class="mb-3 mt-3">
+      <label for="billets">If you are local and can take billets, how many?</label>
+      <input type="text" class="form-control" id="billets" placeholder="..." name="billets">
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="comment">Anything else we should know?</label>
+        <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
+    </div>
+
+      <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
+  </form>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
+<h1 style="color: rgb(198,221,240);"> What to bring: </h1>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
+
+    <div class="row p-3 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
+        <div class="col-md-6  p-3 mb-5">
+          <h4> UWH Gear: </h4>
+                  <form action="/action_page.php">
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
+          <label class="form-check-label" for="check1">Fins</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+          <label class="form-check-label" for="check2">Glove, Sticks and Mask</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something">
+          <label class="form-check-label" for="check3">Caps (Black and White)</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check4" name="option3" value="something">
+          <label class="form-check-label" for="check4">Puck (if you have one)</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check5" name="option3" value="something">
+          <label class="form-check-label" for="check5">Colourful Togs (to help you be identified in the pool)</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check7" name="option2" value="something">
+          <label class="form-check-label" for="check7">Towels</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="check8" name="option3" value="something">
+          <label class="form-check-label" for="check8">Gym Clothes and Shoes</label>
+        </div>
+
+      </form>
+            </div>
+
+       <div class="col-md-6  p-3 mb-5">
+         <h4> Other: </h4>
+                  <form action="/action_page.php">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check9" name="option3" value="something">
+              <label class="form-check-label" for="check9">Snacks for 2/3 Days </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check10" name="option3" value="something">
+              <label class="form-check-label" for="check10">Named Drink Bottle</label>
+            </div>
+              <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check11" name="option3" value="something">
+              <label class="form-check-label" for="check11">Sunblock and insect repellent</label>
+            </div>
+           <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check12" name="option3" value="something">
+              <label class="form-check-label" for="check12">Entertainment (books, headphones, cards)</label>
+           </div>
+        </form>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+
+<div class="container-fluid" style="background-color: rgb(3,83,164);">
+<h1 style="color: rgb(198,221,240);"> Cam's Top Camp and Game Tips :) </h1>
+
+      <div class="row p-3">
+
+        <div class="col-md-4  p-3 mb-5 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
+          <p class="body-text" style="color: rgb(3,83,164);">
+              As a player you are expected to bring an open mind, a willingness to learn, a kind and
+            friendly manner, and the determination to push yourself through some difficult times.
+            Training for an international competition is not always easy and you will rely on each other
+            to help push through the tough times. Knowing someone else is getting out of bed early
+            to do a swim session makes it that little bit easier to do yourself ;-).
+        </p>
+            </div>
+
+       <div class="col-md-4  p-3 mb-5 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
+        <p class="body-text" style="color: rgb(3,83,164);">
+          As competitive athletes please remember that we need to strive to be the best whilst being humble,
+          kind and respectful to our squad mates. Underwater Hockey is a team sport. Without a supportive,
+          cohesive team around us, we can't be amazing UWH players! Sometimes our competitiveness can see
+          us being critical and making comments that may hurt others and within this squad we want everyone to
+          enjoy the campaign experience so remember to ensure you bring a positive mindset to the camps.
+        </p>
+        </div>
+
+        <div class="col-md-4  p-3 mb-5 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
+        <p class="body-text" style="color: rgb(3,83,164);">
+          For those players born in 2006 you may begin training with the U24 squad however, you will still be considered
+          for the U19 squad as well with Ben Forman the U24 coach and I working together to ensure we are working
+          towards the best outcome for all players.
+
+        </p>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+

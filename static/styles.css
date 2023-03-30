@@ -1,43 +1,58 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500&display=swap');
 
 :root{
-    --brand-paper: rgb(202,206,202);
+    --brand-grey: rgb(202,206,202);
     --brand-blue: rgb(54,62,89);
+    --brand-brown: rgb(83,23,19);
+    --brand-purple: rgb(61,43,61);
+    --brand-dark: rgb(33,1,36);
 }
-
-
 
 body{
-    background-image: url('images/uwhcover.jpeg');
-    font-family: 'Lekton', sans-serif;
+    font-family: 'Asap', sans-serif;
     font-size: 100%;
-    background-color: var(--brand-paper);
+    background-color: var(--brand-blue);
 }
 
+
 /* --- text ------*/
+
 .quote{
     text-align: center;
     font-size: 2em;
     font-style: italic;
     padding: 1em 1em;
-    background-color: rgb(61,43,61);
+    background-color: var--(brand-purple);
     color: rgb(150,150,150);
 }
 
 .body-text{
-
-    font-size: 2em;
+    font-size: 1.5em;
+    line-spacing
     font-weight: 400;
+    text-align: left;
+    line-height: 2;
+}
+
+.card-text{
+    font-size: 1.5em;
+    font-weight: 400;
+    text-align: left;
+    }
+
+.card-title{
+    font-size: 2em;
+    font-weight: 500;
     text-align: left;
 }
 
-header{
-    font-size: 8em;
-    text-align: center;
-    font-weight: 800;
-    margin: 0;
+.description{
+    font-size: 1.5em;
+    font-weight: 200;
+    text-align: left;
 }
+
 
 h1{
     font-size: 4em;
@@ -48,7 +63,7 @@ h1{
 
 h2{
     font-size: 3em;
-    text-align: left;
+    text-align: center;
     font-weight: 600;
     margin: 0;
 }
@@ -62,32 +77,19 @@ h3{
 
 /* -- layout --- */
 
-.container-fluid{
-    border: 4px rgb(33,1,36);
-    padding:0;
-}
+
+
 
 .container-lg{
-    border: 4px rgb(33,1,36);
-    background-color: rgb(202,206,202);
-    overflow: auto;
+    background-color: var(--brand-blue);
     margin-bottom: 1.5em;
 }
 
-.col-lg-4, col-lg-8{
-    border: 8px rgb(61,43,61) ;
+.col-lg, col-lg{
+    border: 8px var(--brand-blue) ;
+    box-sizing:border-box;
 }
 
-/* Create two equal columns that floats next to each other */
-.col-container{
-    overflow: hidden;
-}
-.col{
-    box-sizing: border-box;
-    margin:  0.5em 0;
-    padding: 0.25em;
-    width: 100%;
-}
 
 /* -- images --- */
 .part-img{
@@ -96,12 +98,17 @@ h3{
     display: block;
 }
 
+.wrapper {
+  text-align: center;
+  item-align: center;
+}
+
 
 .footer-content{
     background-color: var(--brand-blue);
     text-align: center;
     padding: 0.1em 0 0.1em 0;
-    color: rgb(202,206,202);
+    color: var(--brand-grey);
 }
 
 .footer-content p:first-child{
@@ -114,31 +121,39 @@ h3{
 
 
     .navbar{
-        --brand-blue-pale: rgb(54,62,89);
-        background-color: rgb(61,43,61);
-        border-bottom: 1px rgb(33,1,36);
+        background-color: rgb(61,43,61, 0.9);
+        border-bottom: 1px var(--brand-dark);
     }
 
     .nav-item:hover{
-        background-color: var(--brand-blue-pale);
+        background-color: var(--brand-blue);
     }
 
     .nav-link{
         font-size: 1.2em;
-        color: rgb(202,206,202);
+        color: var(--brand-grey);
     }
 
     .nav-link:hover{
-        color: rgb(202,206,202);
+        color: var(--brand-grey);
+    }
+
+    .btn{
+    background-color: var(--brand-purple);
+    border: 1px var(--brand-purple);
+    }
+
+    .btn:hover{
+        background-color: var(--brand-blue);
     }
 
     .btn-outline{
-        border: 1px rgb(202,206,202);
+        border: 1px var(--brand-purple);
         padding: 0 1em;
     }
 
     .btn-outline:hover{
-        background-color: var(--brand-blue-pale);
+        background-color: var(--brand-blue);
     }
 
 @media only screen and (max-width: 768px) {
