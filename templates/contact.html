@@ -4,5 +4,70 @@
 Campaign Info
 {% endblock %}
 
+{% block banner %}
+  <img src="static/images/contactbanner.jpg" alt="Front Banner" class="d-block" style="width:100%;">
+{% endblock %}
+
 {% block content %}
+
+<style>
+    .f-box{
+    width:85%;
+    }
+</style>
+
+<div class="container-fluid p-3" style="background-color: rgb(110,169,216);">
+  <form class="f-box mx-auto" action="/action_page.php">
+    <div class="mb-3 mt-3">
+        <div class="row">
+            <div class="col">
+              <label for="firstname">First Name(s):</label>
+              <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="col">
+              <label for="surname">Surname:</label>
+              <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname">
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="number">Phone Number:</label>
+      <input type="text" class="form-control" id="number" placeholder="Enter phone" name="number">
+    </div>
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+  <p class="body-text">What are you inquiring about?</p>
+  <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
+      <label class="form-check-label" for="check1">Joining the squad</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+      <label class="form-check-label" for="check2">Camp Details and Costs</label>
+    </div>
+  <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something">
+      <label class="form-check-label" for="check3">Media Enquiry</label>
+    </div>
+  <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="check4" name="option4" value="something">
+      <label class="form-check-label" for="check3">Other</label>
+    </div>
+
+   <div class="mb-3 mt-3">
+      <label for="message">Please leave a detailed message</label>
+      <textarea class="form-control" rows="5" id="message" name="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
 {% endblock %}

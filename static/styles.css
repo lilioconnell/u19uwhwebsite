@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&display=swap');
+
 
 :root{
     --brand-grey: rgb(202,206,202);
@@ -10,7 +11,7 @@
 }
 
 body{
-    font-family: 'Asap', sans-serif;
+    font-family: 'Fira sans', sans-serif;
     font-size: 100%;
     background-color: var(--brand-blue);
 }
@@ -20,7 +21,7 @@ body{
 
 .quote{
     text-align: center;
-    font-size: 2em;
+    font-size: 1.4em;
     font-style: italic;
     padding: 1em 1em;
     background-color: var--(brand-purple);
@@ -28,27 +29,70 @@ body{
 }
 
 .body-text{
-    font-size: 1.5em;
+    font-size: 1.4em;
     line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
 }
 
+
+label{
+    font-size: 1.4em;
+    line-spacing
+    font-weight: 400;
+    text-align: left;
+    line-height: 2;
+}
+
+.table{
+ font-size: 1.4em;
+    line-spacing
+    font-weight: 400;
+    text-align: left;
+    line-height: 2;
+    }
+
+ form-check{
+ font-size: 1.4em;
+    line-spacing
+    font-weight: 400;
+    text-align: left;
+    line-height: 2;
+    }
+
+.form{
+ font-size: 1.4em;
+    line-spacing
+    font-weight: 400;
+    text-align: left;
+    line-height: 2;
+    }
+
+.card{
+    border: 0px;
+    }
+
 .card-text{
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 400;
     text-align: left;
     }
 
 .card-title{
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 500;
     text-align: left;
 }
 
+.card-header{
+    font-size: 2em;
+    text-align: left;
+    font-weight: 400;
+}
+
 .description{
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 200;
     text-align: left;
 }
@@ -57,21 +101,21 @@ body{
 h1{
     font-size: 4em;
     text-align: center;
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
 }
 
 h2{
     font-size: 3em;
     text-align: center;
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
 }
 
 h3{
     font-size: 2em;
     text-align: center;
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -121,7 +165,7 @@ h3{
 
 
     .navbar{
-        background-color: rgb(61,43,61, 0.9);
+        background-color: rgb(12,54,131, 0.7);
         border-bottom: 1px var(--brand-dark);
     }
 
@@ -130,21 +174,21 @@ h3{
     }
 
     .nav-link{
-        font-size: 1.2em;
+        font-size: 1.5em;
         color: var(--brand-grey);
     }
 
     .nav-link:hover{
-        color: var(--brand-grey);
+        color: rgb(110,169,216);
     }
 
     .btn{
-    background-color: var(--brand-purple);
+    background-color: rgb(3,83,164);
     border: 1px var(--brand-purple);
     }
 
     .btn:hover{
-        background-color: var(--brand-blue);
+        background-color: rgb(110,169,216);
     }
 
     .btn-outline{

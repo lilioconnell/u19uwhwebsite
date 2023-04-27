@@ -4,43 +4,70 @@
 Campaign Info
 {% endblock %}
 
+{% block banner %}
+  <img src="static/images/campaignbanner.jpg" alt="Front Banner" class="d-block" style="width:100%;">
+{% endblock %}
+
 {% block content %}
-<div class="container-fluid" style="background-color: rgb(12,54,131);">
-  <img src="static/images/campaignbanner.jpg" alt="The squad at a recent camp" class="d-block" style="width:100%">
-</div>
-<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
-<h1 style="color: rgb(12,54,131);"> Camp Details </h1>
+<div class="container-fluid p-5" style="background-color: rgb(198,221,240);">
+<h1 style="color: rgb(12,54,131);"> Important Dates </h1>
 </div>
 
-<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
-    <table class="table table-light table-hover table-bordered">
+<style>
+    .table{
+    width:85%;
+    }
+</style>
+
+<div class="container-fluid p-5" style="background-color: rgb(198,221,240);">
+    <table class="table mx-auto table-light table-hover table-bordered">
     <thead>
       <tr>
         <th>Date</th>
         <th>Location</th>
-        <th>Estimated Cost</th>
+        <th> Additional Info </th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>21st/22nd April</td>
         <td>Auckland</td>
-        <td>$321</td>
+      <td> Est Cost $321</td>
       </tr>
-      <tr class="table-primary">
-        <td>19th/20th July * SELECTION CAMP</td>
+      <tr class="table-danger">
+        <td>19th-20th July</td>
         <td>Wellington</td>
-        <td>$272</td>
+        <td> Squad Selection Camp </td>
       </tr>
+    <tr>
+        <td>21st-23rd August</td>
+        <td>Auckland</td>
+        <td> Est Cost $282</td>
+    </tr>
+    <tr class="table-primary">
+        <td>15th-27th September 2023</td>
+        <td>Gold Coast</td>
+        <td>Trans Tasmans</td>
+    </tr>
+    <tr class="table-success">
+        <td>15th-27th July 2024</td>
+        <td>Turkey</td>
+        <td>Age Group World Championship</td>
+    </tr>
     </tbody>
   </table>
 </div>
 
+<style>
+    .f-box{
+    width:85%;
+    }
+</style>
 
-<div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
-<h1 style="color: rgb(198,221,240);"> Register for April Camp </h1>
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+<h1 style="color: rgb(0,109,170);"> Register for April Camp </h1>
 
-  <form action="/action_page.php">
+  <form class="f-box mx-auto" action="/action_page.php">
 
     <div class="mb-3 mt-3">
       <label for="name">Name:</label>
@@ -83,13 +110,13 @@ Campaign Info
   </form>
 </div>
 
-<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
-<h1 style="color: rgb(198,221,240);"> What to bring: </h1>
+<div class="container-fluid" style="background-color: rgb(0,109,170);">
+<h1 class="py-3" style="color: rgb(198,221,240);"> What to bring: </h1>
 </div>
 
 <div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
 
-    <div class="row p-3 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
+    <div class="row p-3 rounded" style="background-color: rgb(110,169,216);">
         <div class="col-md-6  p-3 mb-5">
           <h4> UWH Gear: </h4>
                   <form action="/action_page.php">
@@ -152,43 +179,50 @@ Campaign Info
     </div>
 </div>
 
-
 <div class="container-fluid" style="background-color: rgb(3,83,164);">
-<h1 style="color: rgb(198,221,240);"> Cam's Top Camp and Game Tips :) </h1>
+<h1  class="py-5" style="color: rgb(198,221,240);"> Cam's Top Camp and Game Tips :) </h1>
+</div>
 
-      <div class="row p-3">
-
-        <div class="col-md-4  p-3 mb-5 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
+<div class="container-fluid px-4 pb-4" style="background-color: rgb(3,83,164);">
+  <div class="row gx-5">
+    <div class="col">
+        <div class="p-3 rounded" style="background-color: rgb(198,221,240);">
           <p class="body-text" style="color: rgb(3,83,164);">
               As a player you are expected to bring an open mind, a willingness to learn, a kind and
             friendly manner, and the determination to push yourself through some difficult times.
             Training for an international competition is not always easy and you will rely on each other
             to help push through the tough times. Knowing someone else is getting out of bed early
             to do a swim session makes it that little bit easier to do yourself ;-).
-        </p>
-            </div>
-
-       <div class="col-md-4  p-3 mb-5 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
-        <p class="body-text" style="color: rgb(3,83,164);">
-          As competitive athletes please remember that we need to strive to be the best whilst being humble,
-          kind and respectful to our squad mates. Underwater Hockey is a team sport. Without a supportive,
-          cohesive team around us, we can't be amazing UWH players! Sometimes our competitiveness can see
-          us being critical and making comments that may hurt others and within this squad we want everyone to
-          enjoy the campaign experience so remember to ensure you bring a positive mindset to the camps.
-        </p>
-        </div>
-
-        <div class="col-md-4  p-3 mb-5 rounded border border-3 border-info" style="background-color: rgb(198,221,240);">
-        <p class="body-text" style="color: rgb(3,83,164);">
-          For those players born in 2006 you may begin training with the U24 squad however, you will still be considered
-          for the U19 squad as well with Ben Forman the U24 coach and I working together to ensure we are working
-          towards the best outcome for all players.
-
-        </p>
+          </p>
         </div>
     </div>
 
+     <div class="col">
+         <div class="p-3 rounded" style="background-color: rgb(198,221,240);">
+             <p class="body-text" style="color: rgb(3,83,164);">
+              As competitive athletes please remember that we need to strive to be the best whilst being humble,
+              kind and respectful to our squad mates. Underwater Hockey is a team sport. Without a supportive,
+              cohesive team around us, we can't be amazing UWH players! Sometimes our competitiveness can see
+              us being critical and making comments that may hurt others and within this squad we want everyone to
+              enjoy the campaign experience so remember to ensure you bring a positive mindset to the camps.
+            </p>
+         </div>
+    </div>
+
+    <div class="col">
+      <div class="p-3 rounded" style="background-color: rgb(198,221,240);">
+          <p class="body-text" style="color: rgb(3,83,164);">
+          For those players born in 2006 you may begin training with the U24 squad however, you will still be considered
+          for the U19 squad as well with Ben Forman the U24 coach and I working together to ensure we are working
+          towards the best outcome for all players.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
 
 
 
