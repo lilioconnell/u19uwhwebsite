@@ -5,105 +5,196 @@ Training Info
 {% endblock %}
 
 {% block banner %}
-  <img src="static/images/trainingbanner.jpg" alt="Front Banner" class="d-block" style="width:100%;">
+    <style>
+        .hero{
+        position: absolute;
+        text-align: centre;
+        top: 50%;
+        left: 50%;
+        color: rgba(200,200,200,0.75);
+        transform: translate(-50%, -50%);
+        }
+
+    </style>
+<img src="static/images/coverimage_1.jpeg" alt="Front Banner" class="d-block" style="width:100%;"></div>
+
+    <div class="hero"><h1> Training </h1>
+    </div>
 {% endblock %}
 
 {% block content %}
 
+<div class="container-fluid p-5" style="background-color: rgb(198,221,240);">
+    <h1 style="color:rgb(3,83,164);" class="py-5"> Training Phases </h1>
+
+
+    <div class="row p-3 align-items-center">
+            <div class="col-md-6  p-3 mb-5">
+                <h3 style="color: rgb(3,83,164); font-size: 4em;"> Build Phase </h3>
+                <h3 style="color: rgb(12,54,131); font-size: 3em;"> 16 Weeks </h3>
+                <h3 style="color: rgb(3,83,164); font-size: 3em;"> 23/1/23-15/5/23 </h3>
+            </div>
+        <div class="col-md-6  p-3 mb-5">
+            <p class="body-text" style="color: rgb(12,54,131);"> The focus of the build phase is to build your aerobic fitness. This means
+                we are challenging out aerobic system by doing longer, lower intensity workouts. We will build our
+            strength ensuring we are working on balancing our body's correctly to avoid injury. Think long swims, runs,
+            cycles or rows. Training so that you can still talk although it may be becoming difficult. Skills wise you
+            should be working on your basic skills ensuring you have a solid grounding. </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+
+
+    <div class="row p-3 align-items-center">
+        <div class="col-md-6  p-3 mb-5">
+            <p class="body-text"  style="color: rgb(3,83,164);"> The focus of the adjust phase is to work on our sport specific fitness. It sees
+            us concentrate more on our anaeorobic system, our speed and our power systems. This will see us increase
+            our session intensity (higher RPE) but decrease the length of the session. Skills training will move to more
+            game/competition based skills that link into the team tactics.</p>
+        </div>
+            <div class="col-md-6  p-3 mb-5">
+                <h3 style="color: rgb(3,83,164); font-size: 4em;"> Adjust Phase </h3>
+                <h3 style="color: rgb(12,54,131); font-size: 3em;"> 9 Weeks </h3>
+                <h3 style="color: rgb(3,83,164); font-size: 3em;"> 15/5/23-10/7/23 </h3>
+            </div>
+
+    </div>
+</div>
+
 <div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
-    <h1 class="pb-5" style="color: rgb(198,221,240);"> This weeks training </h1>
-    <h2 class="pb-5" style="color: rgb(198,221,240);"> Build 3 Week 3 </h2>
 
-<style>
-    .table{
-    width:85%;
-    }
-</style>
 
-    <table class="table mx-auto table-light table-hover table-bordered">
-    <thead>
-      <tr>
-          <th>Session</th>
-          <th># Per Week</th>
-          <th> Split Guide </th>
-          <th> Hours  </th>
-          <th> Intensity Guide </th>
-          <th> Comments </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Strength</td>
-        <td>3</td>
-        <td> 3x 60 min</td>
-        <td>3</td>
-        <td>-</td>
-        <td> Tapper Sessions</td>
-      </tr>
-      <tr>
-        <td>Pool Sessions</td>
-        <td>2</td>
-        <td> 2x 60 min</td>
-        <td>2</td>
-        <td>RPE 5-7</td>
-        <td> Long swim sessions at increasing intensity, still ok to be
+    <div class="row p-3 align-items-center">
+            <div class="col-md-6  p-3 mb-5">
+                <h3 style="color: rgb(198,221,240); font-size: 4em;"> Comp Phase </h3>
+                <h3 style="color: rgb(110,169,216); font-size: 3em;"> 8 Weeks </h3>
+                <h3 style="color: rgb(198,221,240); font-size: 3em;"> 10/7/23-4/9/23</h3>
+            </div>
+        <div class="col-md-6  p-3 mb-5">
+            <p class="body-text" style="color:rgb(198,221,240);"> The competition phase is where we train to allow our body's to get used to the stress of the
+            competition that is coming up. Sessions will be high intensity and reflect game timings. We will also be having training
+            days that include two pool sessions. </p>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .hero{
+        position: absolute;
+        text-align: centre;
+        top: 50%;
+        left: 50%;
+        color: rgba(200,200,200,0.75);
+        transform: translate(-50%, -50%);
+        }
+
+    </style>
+
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/images/coverimage_7.jpeg" alt="People playing uwh" class="d-block" style="width:100%">
+    </div>
+    <div class="carousel-item">
+      <img src="static/images/coverimage_9.jpeg" alt="Woman playing uwh" class="d-block" style="width:100%">
+    </div>
+  </div>
+
+  <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    <div class="hero"><h1> This Weeks Training </h1>
+    </div>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
+    <h1 class="pb-3" style="color: rgb(198,221,240);"> Week 3 Training </h1>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
+
+        <div class="row p-1 align-items-center">
+            <div class="col-md-6  p-3 mb-2">
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Strength </h4>
+                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 3x 60 min </h4>
+            </div>
+        <div class="col-md-6  p-3 mb-2">
+            <p class="body-text" style="color:rgb(198,221,240);"> Tapper Sessions </p>
+        </div>
+    </div>
+
+            <div class="row p-1 align-items-center">
+            <div class="col-md-6  p-3 mb-2">
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Pool Sessions </h4>
+                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 2x 60 min | RPE 5-7 </h4>
+            </div>
+        <div class="col-md-6  p-3 mb-2">
+            <p class="body-text" style="color:rgb(198,221,240);"> Long swim sessions at increasing intensity, still ok to be
                mainly surface work but start including more UW sets and get
                more deliberate about the pace you're working at and the rest
                you are having.  Aim for longer intervals at higher heart
                rates with relatively short recoveries (not yet sprinting).
                Incorporate kick work and add resistance (eg vertical flutterboards,
-               paddles etc). </td>
-      </tr>
-      <tr>
-        <td>Aerobic/Cardio</td>
-        <td>2</td>
-        <td> 2x 60 min</td>
-        <td>2</td>
-        <td>RPE 5-7</td>
-       <td> Increased intensity of cardio.  Move away from lighter forms of cardio
-           to running, biking, rowing to get your HR up and maximise the benefit of
-           your work.  Start incorporating continuous blocks (20-30 mins) at higher
-           pace into these sessions.</td>
-      </tr>
-      <tr>
-        <td>Interval</td>
-        <td>2</td>
-        <td> 1x 60 min; 1x 30 min (or 2x 45 min)</td>
-        <td>1.5</td>
-        <td>RPE 7-8</td>
-        <td> Extend interval lengths and reduce recovery - eg 6-12 min intervals with
-           short recoveries about 25% of the working interval duration.  Always warm
-           up and cool down before starting your intervals.</td>
-      </tr>
-      <tr>
-        <td>UWH Games</td>
-        <td>1</td>
-        <td> 1x 60 min</td>
-        <td>1</td>
-        <td>-</td>
-        <td> Add second games night if you can </td>
-      </tr>
-      <tr>
-        <td>Skills</td>
-        <td>3</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td> Add to each pool session and games night </td>
-      </tr>
-      </tr>
-        <td>Total sessions</td>
-        <td>10</td>
-        <td> - </td>
-        <td>9.5</td>
-        <td>-</td>
-        <td> Add second games night if you can </td>
-      </tr>
-        </tbody>
-    </table>
+               paddles etc). </p>
+        </div>
     </div>
 
-<div class="container-fluid" style="background-color: rgb(0,109,170);">
+                <div class="row p-1 align-items-center">
+            <div class="col-md-6  p-3 mb-2">
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Cardio  </h4>
+                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 2x 60 min | RPE 5-7 </h4>
+            </div>
+        <div class="col-md-6  p-3 mb-2">
+            <p class="body-text" style="color:rgb(198,221,240);"> Increased intensity of cardio.  Move away from lighter forms of cardio
+           to running, biking, rowing to get your HR up and maximise the benefit of
+           your work.  Start incorporating continuous blocks (20-30 mins) at higher
+           pace into these sessions. </p>
+        </div>
+    </div>
+
+                    <div class="row p-1 align-items-center">
+            <div class="col-md-6  p-3 mb-2">
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Intervals  </h4>
+                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 1x 60 min; 1x 30 min (or 2x 45 min) | RPE 7-8  </h4>
+            </div>
+        <div class="col-md-6  p-3 mb-2">
+            <p class="body-text" style="color:rgb(198,221,240);"> Extend interval lengths and reduce recovery - eg 6-12 min intervals with
+           short recoveries about 25% of the working interval duration.  Always warm
+           up and cool down before starting your intervals. </p>
+        </div>
+    </div>
+
+                        <div class="row p-1 align-items-center">
+            <div class="col-md-6  p-3 mb-2">
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> UWH Games  </h4>
+                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 1x 60 min </h4>
+            </div>
+        <div class="col-md-6  p-3 mb-2">
+            <p class="body-text" style="color:rgb(198,221,240);"> Add second games night if you can</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid" style="background-color: rgb(3,83,164);">
     <h1 style="color:rgb(198,221,240);" class="py-5"> Recent Posts </h1>
         <div class="row p-3 align-items-center">
             <div class="col-md-6  p-3">
@@ -120,7 +211,7 @@ Training Info
                         <p>
                     </div>
                 </div>
-                <div class="card-footer">Posted by Bex, 4/4/2023
+                <div class="card-footer" style="color: rgb(198,221,240);">Posted by Bex, 4/4/2023
                 </div>
             </div>
             <div class="col-md-6  p-3">
@@ -135,7 +226,7 @@ Training Info
                         <p>
                     </div>
                 </div>
-                <div class="card-footer">Posted by Cam, 5/4/2023
+                <div class="card-footer" style="color: rgb(198,221,240);">Posted by Cam, 5/4/2023
                 </div>
             </div>
         </div>
@@ -180,13 +271,7 @@ Training Info
         </div>
 </div>
 
-<div class="container-fluid" style="background-color: rgb(198,221,240);">
-    <h1 style="color:rgb(3,83,164);" class="py-5"> Training Phases </h1>
 
-
-    <img class="part-img mx-auto my-4" src="static/images/build.jpg" alt="Build Phase" style="width:100%">
-    <img class="part-img mx-auto my-4" src="static/images/adjust.jpg" alt="Build Phase" style="width:100%">
-    <img class="part-img mx-auto my-4" src="static/images/taper.jpg" alt="Build Phase" style="width:100%">
 
 </div>
 

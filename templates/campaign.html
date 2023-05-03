@@ -5,69 +5,223 @@ Campaign Info
 {% endblock %}
 
 {% block banner %}
-  <img src="static/images/campaignbanner.jpg" alt="Front Banner" class="d-block" style="width:100%;">
+
+    <style>
+        .hero{
+        position: absolute;
+        text-align: centre;
+        top: 50%;
+        left: 50%;
+        color: rgba(200,200,200,0.75);
+        transform: translate(-50%, -50%);
+        }
+
+    </style>
+<img src="static/images/coverimage_11.jpeg" alt="Front Banner" class="d-block" style="width:100%;"></div>
+
+    <div class="hero"><h1> World's Campaign </h1>
+    </div>
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid p-5" style="background-color: rgb(198,221,240);">
-<h1 style="color: rgb(12,54,131);"> Important Dates </h1>
-</div>
-
-<style>
-    .table{
-    width:85%;
-    }
-</style>
 
 <div class="container-fluid p-5" style="background-color: rgb(198,221,240);">
-    <table class="table mx-auto table-light table-hover table-bordered">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Location</th>
-        <th> Additional Info </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>21st/22nd April</td>
-        <td>Auckland</td>
-      <td> Est Cost $321</td>
-      </tr>
-      <tr class="table-danger">
-        <td>19th-20th July</td>
-        <td>Wellington</td>
-        <td> Squad Selection Camp </td>
-      </tr>
-    <tr>
-        <td>21st-23rd August</td>
-        <td>Auckland</td>
-        <td> Est Cost $282</td>
-    </tr>
-    <tr class="table-primary">
-        <td>15th-27th September 2023</td>
-        <td>Gold Coast</td>
-        <td>Trans Tasmans</td>
-    </tr>
-    <tr class="table-success">
-        <td>15th-27th July 2024</td>
-        <td>Turkey</td>
-        <td>Age Group World Championship</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
 
-<style>
-    .f-box{
-    width:85%;
-    }
-</style>
+        <h1 class="p-3" style="color: rgb(3,83,164);"> Who we are </h1>
+
+
+        <p class="body-text p-3" style="color: rgb(3,83,164);">
+        New Zealand has a great record in Underwater Hockey on the international stage. Currently we are the
+            number one country in the world with five of the eight world championship titles. The Age Group
+            teams (U24 & U18) are currently working on their campaign for the 6th CMAS Underwater Hockey Age
+            Group Championships to be held in July / August 2022 (dates to be confirmed). This will also include the Asia Pacific Cup which is scheduled to be held in the Gold Coast in September 2023.</p>
+
+    </div>
+
 
 <div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
-<h1 style="color: rgb(0,109,170);"> Register for April Camp </h1>
+    <h1 style="color: rgb(3,83,164);"> Important Dates </h1>
+    <div class="row p-1 align-items-center">
+        <div class="col-md-6  p-3 mb-2">
+            <h3 style="color: rgb(3,83,164); font-size: 3em;"> Auckland Camp </h3>
+            <h3 style="color: rgb(3,83,164); font-size: 2em;"> 21st/22nd April </h3>
+            <h3 style="color: rgb(3,83,164); font-size: 2em;"> Est Cost $321 </h3>
+        </div>
 
-  <form class="f-box mx-auto" action="/action_page.php">
+        <div class="col-md-6  p-3 mb-2">
+            <h3 style="color: rgb(3,83,164); font-size: 3em;"> Wellington Camp </h3>
+            <h3 style="color: rgb(3,83,164); font-size: 2em;"> 19th-20th July </h3>
+            <h3 style="color: rgb(3,83,164); font-size: 2em;"> Squad Selection Camp </h3>
+        </div>
+    </div>
+
+    <div class="row p-1 align-items-center">
+
+         <div class="col-md-6  p-3 mb-2">
+             <h3 style="color: rgb(3,83,164); font-size: 3em;"> Auckland Camp </h3>
+             <h3 style="color: rgb(3,83,164); font-size: 2em;"> 21st-23rd August </h3>
+             <h3 style="color: rgb(3,83,164); font-size: 2em;"> Est Cost $282 </h3>
+         </div>
+
+         <div class="col-md-6  p-3 mb-2">
+             <h3 style="color: rgb(3,83,164); font-size: 3em;"> Trans Tasmans </h3>
+             <h3 style="color: rgb(3,83,164); font-size: 2em;"> 21st-28th September </h3>
+             <h3 style="color: rgb(3,83,164); font-size: 2em;"> Gold Coast </h3>
+         </div>
+    </div>
+
+    <h3 style="color: rgb(3,83,164); font-size: 3em;"> Age Group World Championships </h3>
+    <h3 style="color: rgb(3,83,164); font-size: 2em;"> 15th-27th July 2024 </h3>
+    <h3 style="color: rgb(3,83,164); font-size: 2em;"> Location TBD </h3>
+</div>
+
+
+    <style>
+        .hero{
+        position: absolute;
+        text-align: centre;
+        top: 50%;
+        left: 50%;
+        color: rgba(200,200,200,0.75);
+        transform: translate(-50%, -50%);
+        }
+
+    </style>
+
+<div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
+    <h1 class="py-3" style="color: rgb(198,221,240);"> What to bring: </h1>
+
+    <div class="row p-3">
+        <div class="col-md-6  p-3 mb-5">
+          <h4 style="color:rgb(198,221,240);"> UWH Gear: </h4>
+          <form action="/action_page.php">
+            <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
+                  <label class="form-check-label" for="check1">Fins</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+              <label class="form-check-label" for="check2">Glove, Sticks and Mask</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something">
+              <label class="form-check-label" for="check3">Caps (Black and White)</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check4" name="option3" value="something">
+              <label class="form-check-label" for="check4">Puck (if you have one)</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check5" name="option3" value="something">
+              <label class="form-check-label" for="check5">Colourful Togs (to help you be identified in the pool)</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check7" name="option2" value="something">
+              <label class="form-check-label" for="check7">Towels</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="check8" name="option3" value="something">
+              <label class="form-check-label" for="check8">Gym Clothes and Shoes</label>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-6  p-3 mb-5">
+                    <img class="img-thumbnail img-fluid shadow" src="static/images/.jpeg" alt="Image of gear">
+        </div>
+    </div>
+
+    <div class="row p-3">
+        <div class="col-md-6  p-3 mb-5">
+                    <img class="img-thumbnail img-fluid shadow" src="static/images/.jpeg" alt="Image of gear">
+        </div>
+       <div class="col-md-6  p-3 mb-5">
+         <h4> Other: </h4>
+            <form action="/action_page.php">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="check9" name="option3" value="something">
+                  <label class="form-check-label" for="check9">Snacks for 2/3 Days </label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="check10" name="option3" value="something">
+                  <label class="form-check-label" for="check10">Named Drink Bottle</label>
+                </div>
+              <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="check11" name="option3" value="something">
+                  <label class="form-check-label" for="check11">Sunblock and insect repellent</label>
+                </div>
+               <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="check12" name="option3" value="something">
+                  <label class="form-check-label" for="check12">Entertainment (books, headphones, cards)</label>
+               </div>
+            </form>
+       </div>
+
+
+    </div>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
+    <h1  class="py-5" style="color: rgb(198,221,240);"> Cam's Top Camp and Game Tips :) </h1>
+
+          <div class="row p-3">
+            <div class="col-md-6  p-3 mb-5">
+                <div class="p-3 rounded">
+                  <p class="body-text" style="color: rgb(198,221,240);">
+                      As a player you are expected to bring an open mind, a willingness to learn, a kind and
+                    friendly manner, and the determination to push yourself through some difficult times.
+                    Training for an international competition is not always easy and you will rely on each other
+                    to help push through the tough times. Knowing someone else is getting out of bed early
+                    to do a swim session makes it that little bit easier to do yourself ;-).
+                  </p>
+                </div>
+            </div>
+
+              <div class="col-md-6  p-3">
+                   <img class="img-thumbnail img-fluid shadow" src="static/images/uwhcoverfive.jpeg" alt="Picture from last worlds">
+              </div>
+          </div>
+
+              <div class="row p-3">
+
+                   <div class="col-md-6  p-3 mb-5">
+                           <img class="img-thumbnail img-fluid shadow" src="static/images/uwhcovereight.jpeg" alt="Picture from last worlds">
+              </div>
+            <div class="col-md-6  p-3 mb-5">
+                <div class="p-3 rounded">
+                  <p class="body-text" style="color: rgb(198,221,240);"> As competitive athletes please remember that we need to strive to be the best whilst being humble,
+              kind and respectful to our squad mates. Underwater Hockey is a team sport. Without a supportive,
+              cohesive team around us, we can't be amazing UWH players! Sometimes our competitiveness can see
+              us being critical and making comments that may hurt others and within this squad we want everyone to
+              enjoy the campaign experience so remember to ensure you bring a positive mindset to the camps.
+                  </p>
+                </div>
+            </div>
+
+
+          </div>
+
+                  <div class="row p-3">
+            <div class="col-md-6  p-3">
+                <div class="p-3 rounded">
+                  <p class="body-text" style="color: rgb(198,221,240);">
+                  For those players born in 2006 you may begin training with the U24 squad however, you will still be considered
+          for the U19 squad as well with Ben Forman the U24 coach and I working together to ensure we are working
+          towards the best outcome for all players.
+                  </p>
+                </div>
+            </div>
+
+              <div class="col-md-6  p-3 mb-5">
+                   <img class="img-thumbnail img-fluid shadow" src="static/images/uwhcoverfour.jpeg" alt="Picture from last worlds">
+              </div>
+          </div>
+</div>
+
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+    <h1 style="color: rgb(3,83,164);"> Register for April Camp </h1>
+
+    <form class="f-box mx-auto" action="/action_page.php">
 
     <div class="mb-3 mt-3">
       <label for="name">Name:</label>
@@ -109,117 +263,8 @@ Campaign Info
       <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
   </form>
 </div>
-
-<div class="container-fluid" style="background-color: rgb(0,109,170);">
-<h1 class="py-3" style="color: rgb(198,221,240);"> What to bring: </h1>
 </div>
 
-<div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
-
-    <div class="row p-3 rounded" style="background-color: rgb(110,169,216);">
-        <div class="col-md-6  p-3 mb-5">
-          <h4> UWH Gear: </h4>
-                  <form action="/action_page.php">
-
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
-          <label class="form-check-label" for="check1">Fins</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
-          <label class="form-check-label" for="check2">Glove, Sticks and Mask</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something">
-          <label class="form-check-label" for="check3">Caps (Black and White)</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check4" name="option3" value="something">
-          <label class="form-check-label" for="check4">Puck (if you have one)</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check5" name="option3" value="something">
-          <label class="form-check-label" for="check5">Colourful Togs (to help you be identified in the pool)</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check7" name="option2" value="something">
-          <label class="form-check-label" for="check7">Towels</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check8" name="option3" value="something">
-          <label class="form-check-label" for="check8">Gym Clothes and Shoes</label>
-        </div>
-
-      </form>
-            </div>
-
-       <div class="col-md-6  p-3 mb-5">
-         <h4> Other: </h4>
-                  <form action="/action_page.php">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="check9" name="option3" value="something">
-              <label class="form-check-label" for="check9">Snacks for 2/3 Days </label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="check10" name="option3" value="something">
-              <label class="form-check-label" for="check10">Named Drink Bottle</label>
-            </div>
-              <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="check11" name="option3" value="something">
-              <label class="form-check-label" for="check11">Sunblock and insect repellent</label>
-            </div>
-           <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="check12" name="option3" value="something">
-              <label class="form-check-label" for="check12">Entertainment (books, headphones, cards)</label>
-           </div>
-        </form>
-        </div>
-    </div>
-
-    </div>
-</div>
-
-<div class="container-fluid" style="background-color: rgb(3,83,164);">
-<h1  class="py-5" style="color: rgb(198,221,240);"> Cam's Top Camp and Game Tips :) </h1>
-</div>
-
-<div class="container-fluid px-4 pb-4" style="background-color: rgb(3,83,164);">
-  <div class="row gx-5">
-    <div class="col">
-        <div class="p-3 rounded" style="background-color: rgb(198,221,240);">
-          <p class="body-text" style="color: rgb(3,83,164);">
-              As a player you are expected to bring an open mind, a willingness to learn, a kind and
-            friendly manner, and the determination to push yourself through some difficult times.
-            Training for an international competition is not always easy and you will rely on each other
-            to help push through the tough times. Knowing someone else is getting out of bed early
-            to do a swim session makes it that little bit easier to do yourself ;-).
-          </p>
-        </div>
-    </div>
-
-     <div class="col">
-         <div class="p-3 rounded" style="background-color: rgb(198,221,240);">
-             <p class="body-text" style="color: rgb(3,83,164);">
-              As competitive athletes please remember that we need to strive to be the best whilst being humble,
-              kind and respectful to our squad mates. Underwater Hockey is a team sport. Without a supportive,
-              cohesive team around us, we can't be amazing UWH players! Sometimes our competitiveness can see
-              us being critical and making comments that may hurt others and within this squad we want everyone to
-              enjoy the campaign experience so remember to ensure you bring a positive mindset to the camps.
-            </p>
-         </div>
-    </div>
-
-    <div class="col">
-      <div class="p-3 rounded" style="background-color: rgb(198,221,240);">
-          <p class="body-text" style="color: rgb(3,83,164);">
-          For those players born in 2006 you may begin training with the U24 squad however, you will still be considered
-          for the U19 squad as well with Ben Forman the U24 coach and I working together to ensure we are working
-          towards the best outcome for all players.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 

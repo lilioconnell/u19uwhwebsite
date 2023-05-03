@@ -21,7 +21,7 @@ body{
 
 .quote{
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-style: italic;
     padding: 1em 1em;
     background-color: var--(brand-purple);
@@ -29,7 +29,15 @@ body{
 }
 
 .body-text{
-    font-size: 1.4em;
+    font-size: 1.6em;
+    line-spacing
+    font-weight: 400;
+    text-align: left;
+    line-height: 2;
+}
+
+ul{
+    font-size: 1.6em;
     line-spacing
     font-weight: 400;
     text-align: left;
@@ -38,15 +46,16 @@ body{
 
 
 label{
-    font-size: 1.4em;
+    font-size: 1.6em;
     line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
+    text-color: rgb(198,221,240);
 }
 
 .table{
- font-size: 1.4em;
+ font-size: 1.6em;
     line-spacing
     font-weight: 400;
     text-align: left;
@@ -54,7 +63,7 @@ label{
     }
 
  form-check{
- font-size: 1.4em;
+ font-size: 1.6em;
     line-spacing
     font-weight: 400;
     text-align: left;
@@ -62,7 +71,7 @@ label{
     }
 
 .form{
- font-size: 1.4em;
+ font-size: 1.6em;
     line-spacing
     font-weight: 400;
     text-align: left;
@@ -73,8 +82,14 @@ label{
     border: 0px;
     }
 
+.card-footer{
+    font-size: 1.6em;
+    font-weight: 400;
+    text-align: left;
+}
+
 .card-text{
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 400;
     text-align: left;
     }
@@ -92,18 +107,31 @@ label{
 }
 
 .description{
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 200;
     text-align: left;
 }
 
-
-h1{
+h1 {
     font-size: 4em;
     text-align: center;
     font-weight: 400;
-    margin: 0;
+    padding:0;
+    overflow: hidden;
+    color: white;
+    display: table;
+    white-space: nowrap;
 }
+h1:before, h1:after {
+    border-top: 3px solid white;
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.65em;
+    width: 50%;
+}
+h1:before { right: 3%; }
+h1:after { left: 3%; }
 
 h2{
     font-size: 3em;
@@ -112,12 +140,23 @@ h2{
     margin: 0;
 }
 
+
 h3{
     font-size: 2em;
     text-align: center;
     font-weight: 400;
     margin: 0;
 }
+
+h4{
+    font-size: 3em;
+    text-align: left;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+
 
 /* -- layout --- */
 
@@ -212,6 +251,9 @@ h3{
 
 @media only screen and (max-width: 576px) {
     .part-img{
+        max-width: 100%;
+    }
+    .img-thumbnail{
         max-width: 100%;
     }
 
