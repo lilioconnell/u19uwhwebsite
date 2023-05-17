@@ -16,6 +16,24 @@ body{
     background-color: var(--brand-blue);
 }
 
+.hero{
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5em;
+        }
+
+.second{
+        position: absolute;
+        text-align: center;
+        font-size: 0.8em;
+        top: 80%;
+        left: 50%;
+        color: rgba(200,200,200,0.5);
+        transform: translate(-50%, -80%);
+        }
 
 /* --- text ------*/
 
@@ -24,13 +42,11 @@ body{
     font-size: 1.6em;
     font-style: italic;
     padding: 1em 1em;
-    background-color: var--(brand-purple);
     color: rgb(150,150,150);
 }
 
 .body-text{
     font-size: 1.6em;
-    line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
@@ -38,7 +54,6 @@ body{
 
 ul{
     font-size: 1.6em;
-    line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
@@ -47,16 +62,14 @@ ul{
 
 label{
     font-size: 1.6em;
-    line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
-    text-color: rgb(198,221,240);
+    color: rgb(198,221,240);
 }
 
 .table{
  font-size: 1.6em;
-    line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
@@ -64,7 +77,6 @@ label{
 
  form-check{
  font-size: 1.6em;
-    line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
@@ -72,14 +84,13 @@ label{
 
 .form{
  font-size: 1.6em;
-    line-spacing
     font-weight: 400;
     text-align: left;
     line-height: 2;
     }
 
 .card{
-    border: 0px;
+    border: 0;
     }
 
 .card-footer{
