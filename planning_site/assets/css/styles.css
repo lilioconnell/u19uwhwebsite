@@ -1,0 +1,277 @@
+/* -----------------------
+Base styles
+------------------------*/
+
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #eee;
+	background-color: #93a19d;
+	font-family: 'Fira Sans', sans-serif;
+	font-size: 100%;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+	margin: 0 0 .5em;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+h1 { font-size: 2em; font-weight: 2000;} /* 36px */
+h2 { font-size: 1.75em; } /* 28px */
+h3 { font-size: 1.375em; } /* 22px */
+h4 { font-size: 1.125em; font-weight: 1600; } /* 18px */
+h5 { font-size: 1em; } /* 16px */
+h6 { font-size: .875em; } /* 14px */
+
+p
+{
+	margin: 0 0 1.5em;
+	line-height: 1.5;
+}
+
+blockquote
+{
+	padding: 1em 2em;
+	margin: 0 0 2em;
+	border-left: 5px solid #a1b0ab;
+}
+
+hr
+{
+	height: 0;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	border: 0;
+	border-top: 1px solid #a1b0ab;
+}
+
+table
+{
+	background-color: transparent;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-top: 1px solid #a1b0ab;
+}
+
+th, td
+{
+	padding: .5em 1em;
+	vertical-align: top;
+	text-align: left;
+	border-bottom: 1px solid #9ca193;
+}
+
+
+.my-table{
+    width:100%;
+    table-layout: fixed; 
+}
+
+a:link { color: rgb(107, 96, 84); }
+a:visited { color: rgb(146, 148, 135); }
+a:focus { color: rgb(161, 176, 171); }
+a:hover { color: rgb(195, 218, 195); }
+a:active { color: rgb(213, 236, 212); }
+
+/* -----------------------
+Layout styles
+------------------------*/
+
+.container
+{
+	max-width: 80em;
+	margin: 0 auto;
+	background-color: #98a6a2;
+}
+
+.header
+{
+	color: #fff;
+	background: #98a6a2;
+	padding: 1em 1.25em;
+}
+
+.header-heading { margin: 0; }
+
+.nav-bar
+{
+	background: #6b6065;
+	padding: 0;
+}
+
+.content { padding: 1em 1.25em; }
+
+.footer
+{
+	color: #fff;
+	background: #6b6065;
+	padding: 1em 1.25em;
+}
+
+/* -----------------------
+Nav
+------------------------*/
+
+.nav
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav li
+{
+	display: inline;
+	margin: 0;
+}
+
+.nav a
+{
+	display: block;
+	padding: .7em 1.25em;
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px solid #c3dac3;
+}
+
+.nav a:link { color: #d5ecd4; }
+.nav a:visited { color: #a1b0ab; }
+
+.nav a:focus
+{
+	color: white;
+	background-color: #6b6054;
+}
+
+.nav a:hover
+{
+	color: white;
+	background-color: #9ca193;
+}
+
+.nav a:active
+{
+	color: white;
+	background-color: #a1b0ab;
+}
+/* -----------------------
+column styles
+------------------------*/
+.col-container{
+    overflow: hidden;
+}
+.col{
+    box-sizing: border-box;
+    margin:  0.5em 0;
+    padding: 0.25em;
+    width: 100%;
+}
+/* -----------------------
+Single styles
+------------------------*/
+
+.img-responsive { 
+    display: block;
+    margin: auto;
+    max-width: 100%; }
+
+.btn
+{
+	color: #fff !important;
+	background-color: #6b6054;
+	border-color: #222;
+	display: inline-block;
+	padding: .5em 1em;
+	margin-bottom: 0;
+	font-weight: 400;
+	line-height: 1.2;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: .2em;
+	text-decoration: none;
+}
+
+.btn:hover
+{
+	color: #fff !important;
+	background-color: #9ca193;
+}
+
+.btn:focus
+{
+	color: #fff !important;
+	background-color: #a1b0ab;
+}
+
+.btn:active
+{
+	color: #fff !important;
+	background-color: #c3dac3;
+}
+
+.table
+{
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.list-unstyled
+{
+	padding-left: 0;
+	list-style: none;
+}
+
+.list-inline
+{
+	padding-left: 0;
+	margin-left: -5px;
+	list-style: none;
+}
+
+.list-inline > li
+{
+	display: inline-block;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+/* -----------------------
+Wide styles
+------------------------*/
+
+@media (min-width: 42em)
+{
+	.header { padding: 1.5em 3em; }
+	.nav-bar { padding: 1em 3em; }
+	.content { padding: 2em 3em; }
+	.footer { padding: 2em 3em; }
+    
+    .col{
+    float:left;
+    box-sizing: border-box;
+    width:50%;
+    margin:  0.5em 0;
+    padding: 0.55em;
+    overflow: hidden;
+    }
+	
+	.nav li
+	{
+		display: inline;
+		margin: 0 1em 0 0;
+	}
+	
+	.nav a
+	{
+		display: inline;
+		padding: 0;
+		border-bottom: 0;
+	}
+}

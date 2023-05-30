@@ -1,0 +1,272 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Training Info
+{% endblock %}
+
+{% block banner %}
+
+
+<img src="static/images/coverimage_1.jpeg" alt="Front Banner" class="d-block" style="width:100%;">
+
+    <div class="hero"><h1> Blog Posts  </h1>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
+
+      <div class="news p-4 my-4 text-end">
+        <a class="btn tbn-primary" href="{{ url_for('blog_cud', id=0, task='add') }}">Add news</a>
+      </div>
+
+    {% for row in blog %}
+
+        <div class="news p-4 my-4">
+            <h1 class="py-3" style="color:rgb(3,83,164);"> {{ row['title'] }}</h1>
+            <p class="news-text fs-5 my-5" style="color:rgb(3,83,164);">{{row['content'] | replace("\n", "<br>") | safe }}</p>
+
+            <div class="news-meta fst-italic mb-2" style="color: rgb(3,83,164);">Posted by {{row['name']}} on {{row['date'] | date }} </div>
+
+            <div class="news-meta py-4">
+            <a href="{{ url_for('blog_cud', id=row['blog_id'], task='update') }}" class="btn btn-primary" >Edit</a>
+            <a href="{{ url_for('blog_cud', id=row['blog_id'], task='delete') }}" class="btn btn-primary" >Delete</a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    <div class="container-fluid" style="background-color: rgb(3,83,164);">
+        <h1 style="color:rgb(198,221,240);" class="py-5 fw-bolder mb-1"> Recent Blog Posts </h1>
+
+    <div class="container-sm p-5">
+        <!-- Post content-->
+        <article>
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="py-3" style="color:rgb(198,221,240);">Tapper Assessments</h1>
+            </header>
+        </article>
+
+
+        <section class="mb-5">
+            <p class="fs-5 my-5" style="color: rgb(198,221,240);">You should have all received an email from Soph regarding next week being an assessment week for Tapper.
+            Please ALL do these sessions whether you have been doing the tapper training or not. Also, there  are
+            still a number of blank training diaries please ensure these are completed.  Remember that completion of
+            the training diary is a selection criteria (an easy one to meet) so find a way of adding this task to your
+            daily / weekly task list. I hope everyone is doing well and avoiding all the horrid colds going around.
+            We seem to have one in our house at the moment 😢. Take care and happy training, Bex
+            </p>
+
+            <!-- Post meta content-->
+            <div class="fst-italic mb-2" style="color: rgb(198,221,240);">Posted on 4/4/2023 by Bex</div>
+            <!-- Post categories-->
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Tapper</a>
+                    <section class="py-4">
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
+            </section>
+        </section>
+
+        <!-- Comments section-->
+        <section class="mb-5">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <!-- Comment form-->
+                    <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                    <!-- Single comment-->
+                    <div class="d-flex py-2">
+                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                        <div class="ms-3">
+                            <div class="fw-bold">Leah</div>
+                            Thanks Bex :))
+                        </div>
+                    </div>
+                    <div class="d-flex py-2">
+                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                        <div class="ms-3">
+                            <div class="fw-bold">Maddy</div>
+                            Doing this today!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Post content-->
+        <article>
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="py-3" style="color:rgb(198,221,240);">Session Inspiration</h1>
+            </header>
+            <figure class="mb-4 px-5"><img class="img-fluid rounded" src="static/images/campost.jpg" alt="..." /></figure>
+        </article>
+
+
+        <section class="mb-5">
+            <p class="fs-5 my-5" style="color:rgb(198,221,240);">G’day homies, hope everyone is as fizzed up as I am after seeing the Women’s Elite team announcement, I personally
+            can’t wait to see the magic they produce at worlds. If anybody is looking for a new breathhold focused session
+            to do here is one that I do 2 days before every camp to get me ready for some punishing breathholds </p>
+
+            <div class="fst-italic mb-2" style="color: white;">Posted on 5/4/2023 by Cam</div>
+
+            <!-- Post categories-->
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Training Ideas</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Pool Sessions</a>
+
+            <section class="py-4">
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
+            </section>
+        </section>
+
+        <!-- Comments section-->
+        <section class="mb-5">
+            <div class="card bg-light mt-5">
+                <div class="card-body">
+                    <!-- Comment form-->
+                    <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                    <!-- Comment with nested comments-->
+                        <div class="d-flex mb-4">
+                            <!-- Parent comment-->
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">Maddy</div>
+                                Doing them today!!
+                                <!-- Child comment 1-->
+                                <div class="d-flex mt-4">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Claudia</div>
+                                        You got this!!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+        </section>
+
+         <!-- Post content-->
+        <article>
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="py-3" style="color:rgb(198,221,240);">Box Jump Attempts</h1>
+            </header>
+            <img class="card-img-top" src="static/images/leahpost.jpg" alt="Card image" style="width:100%">
+        </article>
+
+
+
+        <section class="mb-5">
+            <p class="fs-5 my-5" style="color:rgb(198,221,240);"> ✨our dodgy set up ✨ </p>
+
+            <div class="fst-italic mb-2" style="color: white;">Posted on 2/3/2023 by Leah </div>
+
+            <!-- Post categories-->
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Training</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Assessments</a>
+            <section class="py-4">
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
+            </section>
+        </section>
+
+        <!-- Comments section-->
+        <section class="mb-5">
+            <div class="card bg-light mt-5">
+                <div class="card-body">
+                    <!-- Comment form-->
+                    <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                    <!-- Comment with nested comments-->
+                        <div class="d-flex mb-4">
+                            <!-- Parent comment-->
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">Maddy</div>
+                                Doing them today!!
+                                <!-- Child comment 1-->
+                                <div class="d-flex mt-4">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Claudia</div>
+                                        You got this!!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+             <!-- Post content-->
+        <article>
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="py-3" style="color:rgb(198,221,240);">Squad Shoutout</h1>
+            </header>
+        </article>
+
+
+        <section class="mb-5">
+            <p class="fs-5 my-5" style="color:rgb(198,221,240);">
+                Shout out to the players with a 90-day Tapper compliance rate of >90%:
+                Zara Benson-Phibbs, Natalie Groot
+                And to those that are >80%:
+                Chantal Brosnan, Claudia Hopkins, Holly Hewitt, Phoebe Ata.
+                Well done 👏👏 and I’ll be keen to see everyone’s improvements once the testing
+                week is finished! </p>
+
+            <div class="fst-italic mb-2" style="color: white;">Posted on 21/3/2023 by Bex </div>
+
+            <!-- Post categories-->
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Training</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Assessments</a>
+                    <section class="py-4">
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
+            <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
+            </section>
+        </section>
+
+        <!-- Comments section-->
+        <section class="mb-5">
+            <div class="card bg-light mt-5">
+                <div class="card-body">
+                    <!-- Comment form-->
+                    <form class="mb-4"><textarea> class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                    <!-- Comment with nested comments-->
+                        <div class="d-flex mb-4">
+                            <!-- Parent comment-->
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3">
+                                <div class="fw-bold">Maddy</div>
+                                Doing them today!!
+                                <!-- Child comment 1-->
+                                <div class="d-flex mt-4">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">Claudia</div>
+                                        You got this!!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}
