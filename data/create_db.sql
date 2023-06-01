@@ -25,9 +25,9 @@ create table blog(
 insert into member( name, email, password, authorisation)
 values('Bex', 'rbrosn@gmail.com', 'temp', 0 );
 insert into member( name, email, password, authorisation)
-values('Maddy', 'mmurdoch@yahoo.com', 'temp', 0 );
+values('Cam', 'cam.the.man@gmail.com', 'temp', 0 );
 insert into member( name, email, password, authorisation)
-values('Andre', 'abonetoo@gmail.com', 'temp', 1 );
+values('Maddy', 'mmurdoch@yahoo.com', 'temp', 1 );
 insert into member( name, email, password, authorisation)
 values('Anna', 'annbr@hotmail.com', 'temp', 1 );
 
@@ -53,5 +53,14 @@ values('Tapper Assessments',
         daily / weekly task list. I hope everyone is doing well and avoiding all the horrid colds going around.
         We seem to have one in our house at the moment 😢. Take care and happy training',
        '2023-03-12 17:45:00',
+       (select member_id from member where name='Bex' )
+       );
+
+insert into blog(title, content, date, member_id)
+values('Session Inspiration',
+       'G’day homies, hope everyone is as fizzed up as I am after seeing the Women’s Elite team announcement, I ' ||
+       'personally can’t wait to see the magic they produce at worlds. If anybody is looking for a new breathhold' ||
+       ' focused session to do here is one that I do 2 days before every camp to get me ready for some punishing breathholds',
+       '2023-05-04 17:45:00',
        (select member_id from member where name='Bex' )
        );

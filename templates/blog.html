@@ -19,9 +19,11 @@ Training Info
 
 <div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
 
+    {% if session and session['authorisation'] == 0 %}
       <div class="news p-4 my-4 text-end">
         <a class="btn tbn-primary" href="{{ url_for('blog_cud', id=0, task='add') }}">Add news</a>
       </div>
+    {% endif %}}
 
     {% for row in blog %}
 
@@ -30,11 +32,12 @@ Training Info
             <p class="news-text fs-5 my-5" style="color:rgb(3,83,164);">{{row['content'] | replace("\n", "<br>") | safe }}</p>
 
             <div class="news-meta fst-italic mb-2" style="color: rgb(3,83,164);">Posted by {{row['name']}} on {{row['date'] | date }} </div>
-
+            {% if session and session['authorisation'] == 0 %}
             <div class="news-meta py-4">
             <a href="{{ url_for('blog_cud', id=row['blog_id'], task='update') }}" class="btn btn-primary" >Edit</a>
             <a href="{{ url_for('blog_cud', id=row['blog_id'], task='delete') }}" class="btn btn-primary" >Delete</a>
             </div>
+            {% endif %}
         </div>
 
     {% endfor %}
@@ -64,7 +67,7 @@ Training Info
             <!-- Post meta content-->
             <div class="fst-italic mb-2" style="color: rgb(198,221,240);">Posted on 4/4/2023 by Bex</div>
             <!-- Post categories-->
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Tapper</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Tapper</a>
                     <section class="py-4">
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
@@ -116,8 +119,8 @@ Training Info
             <div class="fst-italic mb-2" style="color: white;">Posted on 5/4/2023 by Cam</div>
 
             <!-- Post categories-->
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Training Ideas</a>
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Pool Sessions</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Training Ideas</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Pool Sessions</a>
 
             <section class="py-4">
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
@@ -170,8 +173,8 @@ Training Info
             <div class="fst-italic mb-2" style="color: white;">Posted on 2/3/2023 by Leah </div>
 
             <!-- Post categories-->
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Training</a>
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Assessments</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Training</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Assessments</a>
             <section class="py-4">
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
@@ -226,8 +229,8 @@ Training Info
             <div class="fst-italic mb-2" style="color: white;">Posted on 21/3/2023 by Bex </div>
 
             <!-- Post categories-->
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Training</a>
-            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Assessments</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Training</a>
+            <a class="badge bg-secondary text-decoration-none link-light" href="">Assessments</a>
                     <section class="py-4">
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
             <a href="#" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
@@ -267,6 +270,7 @@ Training Info
 
     </div>
 
+</div>
 </div>
 
 {% endblock %}

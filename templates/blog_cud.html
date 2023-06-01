@@ -15,13 +15,13 @@ Blog Posting
 
 <div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
 
-  <section class="news p-4 my-4">
+  <div class="news p-4 my-4">
     <h2 class="py-3" style="color:rgb(3,83,164);">  Please enter/update your blog post </h2>
-    <form action="{{url_for('blog_cud', id=id, task=task)}}" class="f-box mx-auto" method="POST">
+    <form action="{{url_for('blog_cud', id=id, task=task)}}" method="POST">
 
       <div mb-3>
-        <label for="title">Title</label>
-        <input type="text" class="fom-control" id="title" placeholder="" name="title"  required>
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="fom-control" id="title" placeholder="" name="title" value="{{title}}" required>
             <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -34,7 +34,7 @@ Blog Posting
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
-    </section>
+    </div>
 </div>
 
 {% endblock %}
