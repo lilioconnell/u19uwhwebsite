@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Campaign Info
+{% endblock %}
+
+{% block banner %}
+
+<img src="static/images/coverimage_3.jpeg" alt="Front Banner" class="d-block" style="width:100%;"></div>
+
+    <div class="hero"><h1> Contact Us </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .f-box{
+    width:85%;
+    }
+</style>
+
+
+<div class="container-fluid p-3" style="background-color: rgb(110,169,216);">
+
+    <div class="container-md p-3" style="background-color: rgb(110,169,216);">
+  <form action= "{{url_for('contact')}}" method="POST">
+    <div class="mb-3 mt-3">
+        <div class="row">
+            <div class="col">
+              <label for="first">First Name(s):</label>
+              <input type="text" class="form-control" id="first" placeholder="Enter first name" name="first" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="col">
+              <label for="last">Surname:</label>
+              <input type="text" class="form-control" id="last" placeholder="Enter surname" name="last">
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="phone">Phone Number:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+    </div>
+    <div class="mb-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+   <div class="mb-3 mt-3">
+      <label for="enquiry">Please leave a detailed message</label>
+      <textarea class="form-control" rows="5" id="enquiry" name="enquiry"></textarea>
+     <div class="text-end">
+          <button type="reset" class="btn btn-primary mt-3">Reset</button>
+          <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </div>
+   </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

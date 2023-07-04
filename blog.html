@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Training Info
+{% endblock %}
+
+{% block banner %}
+
+
+<img src="static/images/coverimage_1.jpeg" alt="Front Banner" class="d-block" style="width:100%;">
+
+    <div class="hero"><h1> Blog Posts  </h1>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
+
+
+    {% if session and session['authorisation'] in ['Coach', 'Player'] %}
+      <div class="news p-4 my-4 text-end">
+        <a class="btn btn-primary" href="{{ url_for('blog_cud', id=0, task='add') }}">Add news</a>
+      </div>
+    {% endif %}
+
+
+    {% for row in blog %}
+        <div class="container-lg-4">
+            <div class="news p-4 my-4">
+                <h1 class="py-3" style="color:rgb(3,83,164);"> {{ row['title'] }}</h1>
+                <p class="news-text fs-5 my-5" style="color:rgb(3,83,164);">{{row['content'] | replace("\n", "<br>") | safe }}</p>
+                <img class="img-fluid rounded" src= {{row['picture']}}>
+                <div class="news-meta fst-italic mb-2" style="color: rgb(3,83,164);">Posted by {{row['name']}} on {{row['date'] | date }}
+                </div>
+                {% if session and session['authorisation']  in ['Coach'] %}
+                <div class="news-meta py-4">
+                    <a href="{{ url_for('blog_cud', id=row['blog_id'], task='update') }}" class="btn btn-primary" >Edit</a>
+                    <a href="{{ url_for('blog_cud', id=row['blog_id'], task='delete') }}" class="btn btn-primary" >Delete</a>
+                </div>
+                {% endif %}
+            </div>
+            </div>
+
+        <div class="container-lg-4">
+            {% for comment in comments %}
+                {% if row['blog_id'] == comment['blog_id'] %}
+                    <div id="comment{{loop.index}}" class="p-4 my-4 container-sm rounded text-center">
+                        <div class="">{{comment['content']}} posted
+                            <br> on {{comment['date']}}
+                            <br> by {{comment['name']}}
+                        </div>
+                    </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        {% if session and session['authorisation'] in ['Coach', 'Player', 'Parent'] %}
+            <div class="news p-4 my-4">
+                <form action="{{ url_for('comment_cud')}}" method="POST">
+                    <textarea id="comment" name="comment" class="form-control" placeholder="Add a comment" rows="2"></textarea>
+                    <input type="hidden" name="blog_id" value="{{row['blog_id']}}"/>
+                    <button type="submit" id="submit" class="btn btn-primary mt-2">Post</button>
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

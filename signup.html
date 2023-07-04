@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid py-sm-5 py-1" style="background-color: rgb(3,83,164);">
+  <div class="news p-4 my-4">
+    <h2> Please enter your credentials </h2>
+    <div class="alert">{{error}}</div>
+    <form action="{{url_for('signup')}}" method="POST">
+              <div>
+        <label for="name" class="form-label">Please enter your name </label>
+        <input type="name" class="form-control" id="name" name="name" placeholder="" value="{{name}}" required>
+      </div>
+      <div>
+        <label for="email" class="form-label">Please enter your email </label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
+      </div>
+      <div>
+        <label for="password" class="form-label">Please enter a password </label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
+      </div>
+      <div>
+        <label for="authorisation" class="form-label">Select list (select one):</label>
+      <select class="form-select" id="authorisation" name="authorisation">
+      <option>Player</option>
+      <option>Coach</option>
+      <option>Parent</option>
+        <option>Other</option>
+    </select>
+      </div>
+      <div class="text-end">
+        <button type="reset" class="btn btn-primary mt-2">Reset</button>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </div>
+
+      <p class="bottom p-3">Have an account already?  <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
+
+    </form>
+  </div>
+
+</div>
+
+
+
+{% endblock %}

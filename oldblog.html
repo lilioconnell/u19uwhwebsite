@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Old Blog
+{% endblock %}
+
+{% block content %}
+
+
+
+
+{% for row in blog %}
+
+<div class="container-lg py-sm-5 py-1">
+<h1> Blog </h1>
+<div class="news p-4 my-4 text-end">
+  <a class="btn btn-primary" href=" url_for('blog_cud', id=0, task='add') }}">Add a Post</a>
+</div>
+
+    <div class="container-sm p-5">
+    <article>
+        <header class="mb-4">
+            <!-- Post title-->
+            <h1 class="py-3" style="color:rgb(198,221,240);">{{row['title']}}</h1>
+        </header>
+    </article>
+
+    <section class="mb-5">
+        <h2> {{ row['title'] }}</h2>
+        <p class="fs-5 my-5" style="color:rgb(198,221,240);">{{row['content'] | replace("\n", "<br>") | safe }}</p>
+
+        <div class="fst-italic mb-2" style="color: white;"> Posted by {{row['name']}} on {{row['date'] | date }} </div>
+
+        <section class="py-4">
+        <a href="{{ url_for('blog_cud', id=row['blog_id'], task='update') }}" class="btn btn-primary" style="background-color:rgb(110,169,216);">Edit</a>
+        <a href="{{ url_for('blog_cud', id=row['blog_id'], task='delete') }}" class="btn btn-primary" style="background-color:rgb(110,169,216);">Delete</a>
+        </section>
+    </section>
+    </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}

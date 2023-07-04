@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Training Info
+{% endblock %}
+
+{% block content %}
+
+<div class="container-lg p-5" style="background-color: rgb(3,83,164);">
+
+    {% for row in comments %}
+        <div class="news p-2 my-2">
+            <p class="news-text fs-5 my-2" style="color:rgb(3,83,164);">{{row['content']}}</p>
+            <div class="news-meta fst-italic mb-2" style="color: rgb(3,83,164);">Posted by {{row['name']}} on {{row['date']}} </div>
+        </div>
+    {% if session and session['authorisation']  in ['Coach'] %}
+        <div class="news-meta py-4">
+        <a href="{{ url_for('comment_cud', id=row['comment_id'], task='delete') }}" class="btn btn-primary" >Delete</a>
+        </div>
+    {% endif %}
+    {% endfor %}
+
+{% if session and session['authorisation'] in ['Coach', 'Player','Parent'] %}
+  <div class="news p-4 my-4 text-end">
+    <a class="btn btn-primary" href="{{ url_for('comment_cud', id=0, task='add') }}">Add a comment</a>
+  </div>
+{% endif %}
+
+    </div>
+{% endblock %}
