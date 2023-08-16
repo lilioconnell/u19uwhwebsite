@@ -3,18 +3,78 @@
 
 
 :root{
-    --brand-grey: rgb(202,206,202);
-    --brand-blue: rgb(54,62,89);
-    --brand-brown: rgb(83,23,19);
-    --brand-purple: rgb(61,43,61);
-    --brand-dark: rgb(33,1,36);
+    --brand-light: rgb(198,221,240);
+    --brand-blue: rgb(3,83,164);
+    --brand-medium: rgb(0,109,170);
+    --brand-deep: rgb(12,54,131);
+    --brand-light: rgb(110,169,216);
 }
 
 body{
+    background-color: var(--brand-blue);
     font-family: 'Fira sans', sans-serif;
     font-size: 100%;
-    background-color: var(--brand-blue);
 }
+
+p{
+    font-size: 1.6em;
+}
+
+
+h1 {
+    font-size: 3.5em;
+    border: 0px solid red;
+    padding:0;
+    overflow: hidden;
+    color: rgb(255,255,255,0.75);
+    font-weight: bold;
+    display: table;
+    white-space: nowrap;
+    margin: 0em;
+    text-align: center;
+}
+
+h1:before, h1:after {
+    border-top: 3px rgb(255,255,255,0.75);
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 0.65em;
+    width: 50%;
+}
+h1:before { right: 3%; }
+h1:after { left: 3%; }
+
+/* -------------------------------------- */
+
+h2{
+    font-size: 3em;
+    font-weight: bolder;
+    color: black;
+    padding-bottom: 0.5em;
+    text-align: center;
+    margin: 0;
+}
+
+
+h3{
+    font-size: 2em;
+    font-weight: bolder;
+    color: black;
+    padding-bottom: 0.5em;
+    text-align: center;
+    margin: 0;
+}
+
+h4{
+    font-size: 3em;
+    font-weight: bolder;
+    color: black;
+    padding-bottom: 0.5em;
+    text-align: left;
+    margin: 0;
+}
+
 
 .hero{
         position: absolute;
@@ -23,88 +83,81 @@ body{
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 1.7em;
-        }
-
-.session{
-        font-size: 1.7em;
-    color: red;
-    background-color: white;
-        }
-
-
-.second{
-        position: absolute;
-        text-align: center;
-        font-size: 0.8em;
-        top: 80%;
-        left: 50%;
-        color: rgba(200,200,200,0.5);
-        transform: translate(-50%, -80%);
-        }
-
-/* --- text ------*/
-
-.quote{
-    text-align: center;
-    font-size: 1.7em;
-    font-style: italic;
-    padding: 1em 1em;
-    color: rgb(150,150,150);
 }
 
-.body-text{
-    font-size: 1.7em;
+/* -- navigation --- */
+
+
+    .navbar{
+        border-bottom: 1px var(--brand-deep);
+    }
+
+    .nav-item:hover{
+        background-color: var(--brand-deep);
+    }
+
+    .nav-link{
+        font-size: 1em;
+        color: white;
+    }
+
+    .nav-link:hover{
+        color: var(--brand-light);
+    }
+
+    .btn{
+        color: var(--brand-deep);
+        background-color: white;
+    }
+
+    .btn:hover{
+        color: var(--brand-light);
+    }
+
+    .btn-outline{
+        border: 1px var(--brand-deep);
+        padding: 0 1em;
+        margin-bottom: 0.1em;
+    }
+
+    .btn-outline:hover{
+        background-color: var(--brand-blue);
+    }
+
+
+/* --- sections ------*/
+
+.quote, .body-text, label, .table, form p, form check, label{
+    border: 0px solid red;
+    margin: 0em 0.1em 0.1em 0;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 1.6em;
+    color: white;
     font-weight: 400;
-    text-align: left;
-    line-height: 2;
 }
 
 ul{
-    font-size: 1.7em;
-    font-weight: 400;
+    border: 0px solid red;
+    margin: 0em 0.1em 0.1em 0;
+    padding: 0.5em;
     text-align: left;
-    line-height: 2;
+    font-size: 1.6em;
+    color: white;
+    font-weight: 400;
 }
 
-
-label{
-    font-size: 1.7em;
+.form-label{
+    border: 0px solid red;
+    margin: 0em 0.1em 0.1em 0;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 1.6em;
+    color: var(--brand-deep);
     font-weight: 400;
-    text-align: left;
-    line-height: 2;
-    color: rgb(198,221,240);
 }
 
-.table{
- font-size: 1.7em;
-    font-weight: 400;
-    text-align: left;
-    line-height: 2;
-    }
-
-
-form p{
-    font-size: 1.7em;
-    font-weight: 400;
-    text-align: left;
-    line-height: 2;
-}
-
- form-check{
- font-size: 1.7em;
-    font-weight: 400;
-    text-align: left;
-    line-height: 2;
-    }
-
-
-label{
-     font-size: 1.7em;
-    font-weight: 400;
-    text-align: left;
-    line-height: 2;
-   color: rgb(3,83,164);
-}
+/* cards */
 
 .card{
     max-width: 500px;
@@ -128,7 +181,7 @@ label{
 
 .card-title{
     font-size: 1.7em;
-    font-weight: 500;
+    font-weight: bold;
     text-align: left;
 }
 
@@ -143,50 +196,6 @@ label{
     font-weight: 200;
     text-align: left;
 }
-
-h1 {
-    font-size: 4em;
-    text-align: center;
-    font-weight: 400;
-    padding:0;
-    overflow: hidden;
-    color: white;
-    display: table;
-    white-space: nowrap;
-}
-h1:before, h1:after {
-    border-top: 3px solid white;
-    content: '';
-    display: table-cell;
-    position: relative;
-    top: 0.65em;
-    width: 50%;
-}
-h1:before { right: 3%; }
-h1:after { left: 3%; }
-
-h2{
-    font-size: 3em;
-    text-align: center;
-    font-weight: 400;
-    margin: 0;
-}
-
-
-h3{
-    font-size: 2em;
-    text-align: center;
-    font-weight: 400;
-    margin: 0;
-}
-
-h4{
-    font-size: 3em;
-    text-align: left;
-    font-weight: 400;
-    margin: 0;
-}
-
 
 
 
@@ -207,8 +216,25 @@ h4{
     font-weight: bold;
 }
 
+.comment{
+    max-width: 600px;
+    margin: auto;
+    background-color: rgb(198,221,240);
+    border-radius: 1em;
+    filter: drop-shadow(0.25em 0.25em 0.25em rgba(0,0,0,0.3));
+}
+.news-text{
+    font-size: 1.4em;
+}
+.news-meta{
+    text-align: end;
+}
 
 
+.container-lg{
+    background-color: white;
+    margin-bottom: 1.5em;
+}
 
 
 .container-lg{
@@ -236,10 +262,10 @@ h4{
 
 
 .footer-content{
-    background-color: var(--brand-blue);
+    background-color: var(--brand-light);
     text-align: center;
     padding: 0.1em 0 0.1em 0;
-    color: var(--brand-grey);
+    color: var(--brand-deep);
 }
 
 .footer-content p:first-child{
@@ -248,45 +274,6 @@ h4{
 }
 
 
-/* -- navigation --- */
-
-
-    .navbar{
-        background-color: rgb(12,54,131, 0.7);
-        border-bottom: 1px var(--brand-dark);
-    }
-
-    .nav-item:hover{
-        background-color: var(--brand-blue);
-    }
-
-    .nav-link{
-        font-size: 1em;
-        color: var(--brand-grey);
-    }
-
-    .nav-link:hover{
-        color: rgb(110,169,216);
-    }
-
-    .btn{
-        color: rgb(110,169,216);
-    background-color: rgb(3,83,164);
-    border: 1px var(--brand-purple);
-    }
-
-    .btn:hover{
-        background-color: rgb(110,169,216);
-    }
-
-    .btn-outline{
-        border: 1px var(--brand-purple);
-        padding: 0 1em;
-    }
-
-    .btn-outline:hover{
-        background-color: var(--brand-blue);
-    }
 
 @media only screen and (max-width: 768px) {
 
