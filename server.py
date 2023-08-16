@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from db_function import run_search_query_tuples, run_commit_query
+from db_function import execute_external_script, run_search_query_tuples, run_commit_query
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 app.secret_key = "ertyuiop"
+UPLOAD_FOLDER = 'static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db_path = 'data/pasta_db.sqlite'
 
 
@@ -21,24 +24,24 @@ def index():
 
 @app.route('/campaign', methods=["GET", "POST"])
 def campaign():
+    print("campaign")
     sql = """ select camps.camp_id, camps.camp_cost, camps.camp_location, camps.camp_date
         from camps """
-    result = run_search_query_tuples(sql, (), db_path, True)
-    print(result)
-    return render_template("campaign.html", camps=result)
-
-def register():
+    camp_result = run_search_query_tuples(sql, (), db_path, True)
     msg = ''
-    f = request.form
-    if request.method == 'POST' and 'email' in request.form and 'billet' in request.form and 'billet_number' in request.form and 'other' in request.form:
-        values_tuple = (f['email'], f['billet'], f['billet_number'], f['other'])
-        sql = """INSERT INTO register(email, billet, billet_number, other) VALUES (?, ?, ?, ?)"""
-        result = run_commit_query(sql, values_tuple, db_path)
+
+    if request.method == 'POST':
+        f = request.form
+        print(f)
+        f_keys = f.keys()
+        values_tuple = (f['email'], f['billet'], f['billet_number'], f['other'], session['member_id'])
+        print(values_tuple)
+        sql = "INSERT INTO register(email, billet, billet_number, other, member_id) VALUES (?, ?, ?, ?, ?)"
+        reg_result = run_commit_query(sql, values_tuple, db_path)
         return redirect(url_for('campaign'))
     elif request.method == 'POST':
         msg = 'Please fill out the form !'
-    return render_template('campaign.html', msg = msg)
-
+    return render_template("campaign.html", camps=camp_result, msg = msg)
 
 
 @app.route('/add_camp', methods=["GET", "POST"])
@@ -127,6 +130,8 @@ def hof_cud():
     elif request.method == "POST":
         # collected form information
         f = request.form
+        # special request for image file
+        g = request.files['headshot']
         # print(f)
         if data['task'] == 'add':
             # add the new entry to the database
@@ -135,6 +140,14 @@ def hof_cud():
                     values(?,?, ?, ?)"""
             values_tuple = (f['name'], f['description'], f['socials'], f['headshot'])
             result = run_commit_query(sql, values_tuple, db_path)
+            if g.filename != "":
+                if g.content_type in ["image/jpeg", "image/png"]:
+                    g.save(os.path.join(app.config['UPLOAD_FOLDER'], g.filename))
+                    size = os.stat(os.path.join(app.config['UPLOAD_FOLDER'], g.filename)).st_size
+                    print(size)
+                    sql = "update halloffame set headshot = ? where hof_id = ?"
+                    values_tuple = (g.filename)
+                    result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('halloffame'))
         elif data['task'] == 'update':
             sql = """update halloffame set name=?, description=?, socials=?, headshot=? where hof_id=?"""
@@ -182,9 +195,10 @@ def blog():
     result_blog = run_search_query_tuples(sql, (), db_path, True)
     print(result_blog)
 
-    sql = """select comments.comment_id, comments.content, comments.date, member.name
+    sql = """select comments.comment_id, comments.content, comments.date, member.name,  blog.blog_id
     from comments
     join member on comments.member_id = member.member_id
+    join blog on comments.blog_id = blog.blog_id
     order by comments.date desc;
     """
     result_comment = run_search_query_tuples(sql, (), db_path, True)
@@ -232,17 +246,18 @@ def blog_cud():
         # collected form information
         f = request.form
         # print(f)
+        g = request.files['file']
         if data['task'] == 'add':
             # add the new entry to the database
             # member is fixed for now
-            sql = """insert into blog(title,content,date,member_id)
-                    values(?,?, datetime('now', 'localtime'), ?)"""
-            values_tuple = (f['title'], f['content'], session['member_id'])
+            sql = """insert into blog(title,content,date,picture, member_id)
+                    values(?,?, datetime('now', 'localtime'), ?, ?)"""
+            values_tuple = (f['title'], f['content'], f['picture'], session['member_id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('blog'))
         elif data['task'] == 'update':
-            sql = """update blog set title=?, content=?, date=datetime('now', 'localtime') where blog_id=?"""
-            values_tuple = (f['title'], f['content'], data['id'])
+            sql = """update blog set title=?, content=?, picture=?, date=datetime('now', 'localtime') where blog_id=?"""
+            values_tuple = (f['title'], f['content'], f['picture'], data['id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('blog'))
         else:
@@ -278,6 +293,7 @@ def login():
                 session['name'] = result['name']
                 session['authorisation'] = result['authorisation']
                 session['member_id'] = result['member_id']
+                session['email'] = f['email']
                 return redirect(url_for('index'))
             else:
                 return render_template("login.html", error=error)
