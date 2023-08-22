@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from db_function import execute_external_script, run_search_query_tuples, run_commit_query
 from datetime import datetime
 import os
+from werkzeug.utils import secure_filename
+import imghdr
 
 app = Flask(__name__)
 app.secret_key = "ertyuiop"
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 UPLOAD_FOLDER = 'static/images'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db_path = 'data/pasta_db.sqlite'
@@ -92,6 +95,15 @@ def halloffame():
     print(result)
     return render_template("halloffame.html", halloffame=result)
 
+def validate_image(stream):
+    header = stream.read(512)
+    stream.seek(0)
+    format = imghdr.what(None, header)
+    if not format:
+        return None
+    return '.' + (format if format != 'jpeg' else 'jpg')
+
+
 @app.route('/hof_cud', methods=["GET", "POST"])
 def hof_cud():
     # collect data from the web address
@@ -130,28 +142,30 @@ def hof_cud():
     elif request.method == "POST":
         # collected form information
         f = request.form
-        # special request for image file
         g = request.files['headshot']
+        print(g)
+        # special request for image file
         # print(f)
         if data['task'] == 'add':
             # add the new entry to the database
             # member is fixed for now
             sql = """insert into halloffame(name, description, socials, headshot)
                     values(?,?, ?, ?)"""
-            values_tuple = (f['name'], f['description'], f['socials'], f['headshot'])
+            filename = secure_filename(g.filename)
+            if g != '':
+                file_ext = os.path.splitext(filename)[1]
+                if file_ext not in app.config['UPLOAD_EXTENSIONS'] or \
+                        file_ext != validate_image(g.stream):
+                    print("An error has occured")
+                g.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+            values_tuple = (f['name'], f['description'], f['socials'], g.filename)
             result = run_commit_query(sql, values_tuple, db_path)
-            if g.filename != "":
-                if g.content_type in ["image/jpeg", "image/png"]:
-                    g.save(os.path.join(app.config['UPLOAD_FOLDER'], g.filename))
-                    size = os.stat(os.path.join(app.config['UPLOAD_FOLDER'], g.filename)).st_size
-                    print(size)
-                    sql = "update halloffame set headshot = ? where hof_id = ?"
-                    values_tuple = (g.filename)
-                    result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('halloffame'))
+
         elif data['task'] == 'update':
             sql = """update halloffame set name=?, description=?, socials=?, headshot=? where hof_id=?"""
-            values_tuple = (f['name'], f['description'], f['socials'], f['headshot'], data['id'])
+            values_tuple = (f['name'], f['description'], f['socials'], g.filename, data['id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('halloffame'))
         else:
@@ -246,18 +260,26 @@ def blog_cud():
         # collected form information
         f = request.form
         # print(f)
-        g = request.files['file']
+        g = request.files['picture']
+
         if data['task'] == 'add':
             # add the new entry to the database
             # member is fixed for now
             sql = """insert into blog(title,content,date,picture, member_id)
                     values(?,?, datetime('now', 'localtime'), ?, ?)"""
-            values_tuple = (f['title'], f['content'], f['picture'], session['member_id'])
+            filename = secure_filename(g.filename)
+            if g != '':
+                file_ext = os.path.splitext(filename)[1]
+                if file_ext not in app.config['UPLOAD_EXTENSIONS'] or \
+                        file_ext != validate_image(g.stream):
+                    print("An error has occured")
+                g.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            values_tuple = (f['title'], f['content'], g.filename, session['member_id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('blog'))
         elif data['task'] == 'update':
             sql = """update blog set title=?, content=?, picture=?, date=datetime('now', 'localtime') where blog_id=?"""
-            values_tuple = (f['title'], f['content'], f['picture'], data['id'])
+            values_tuple = (f['title'], f['content'], g.filename, data['id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('blog'))
         else:
