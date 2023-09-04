@@ -268,13 +268,16 @@ def blog_cud():
             sql = """insert into blog(title,content,date,picture, member_id)
                     values(?,?, datetime('now', 'localtime'), ?, ?)"""
             filename = secure_filename(g.filename)
-            if g != '':
+            if g.filename != "":
                 file_ext = os.path.splitext(filename)[1]
                 if file_ext not in app.config['UPLOAD_EXTENSIONS'] or \
                         file_ext != validate_image(g.stream):
                     print("An error has occured")
                 g.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            values_tuple = (f['title'], f['content'], g.filename, session['member_id'])
+            if g.filename == "":
+                values_tuple = (f['title'], f['content'], "placeholder.jpg", session['member_id'])
+            else:
+                values_tuple = (f['title'], f['content'], g.filename, session['member_id'])
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('blog'))
         elif data['task'] == 'update':
