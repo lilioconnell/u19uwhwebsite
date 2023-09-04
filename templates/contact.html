@@ -21,30 +21,27 @@ Campaign Info
 </style>
 
 
-
 <div class="container-fluid p-3" style="background-color: rgb(110,169,216);">
 
-    <h1> Contact Us </h1>
     <div class="container-md p-3" style="background-color: rgb(110,169,216);">
-  <form class="f-box mx-auto" action="/action_page.php">
+  <form action= "{{url_for('contact')}}" method="POST">
     <div class="mb-3 mt-3">
         <div class="row">
             <div class="col">
-              <label for="firstname">First Name(s):</label>
-              <input type="text" class="form-control" id="firstname" placeholder="Enter first name" name="firstname" required>
+              <label for="first">First Name(s):</label>
+              <input type="text" class="form-control" id="first" placeholder="Enter first name" name="first" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
             <div class="col">
-              <label for="surname">Surname:</label>
-              <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname">
+              <label for="last">Surname:</label>
+              <input type="text" class="form-control" id="last" placeholder="Enter surname" name="last">
             </div>
         </div>
     </div>
-
     <div class="mb-3">
-      <label for="number">Phone Number:</label>
-      <input type="text" class="form-control" id="number" placeholder="Enter phone" name="number">
+      <label for="phone">Phone Number:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
     </div>
     <div class="mb-3">
       <label for="email">Email:</label>
@@ -52,16 +49,15 @@ Campaign Info
         <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
-    <div class="mb-3 mt-3">
-          <label for="enquiry">What are you enquiring about?</label>
-          <textarea class="form-control" rows="3" id="enquiry" name="text"></textarea>
-    </div>
    <div class="mb-3 mt-3">
-      <label for="message">Please leave a detailed message</label>
-      <textarea class="form-control" rows="5" id="message" name="text"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <label for="enquiry">Please leave a detailed message</label>
+      <textarea class="form-control" rows="5" id="enquiry" name="enquiry"></textarea>
+     <div class="text-end">
+          <button type="reset" class="btn btn-primary mt-3">Reset</button>
+          <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </div>
+   </div>
+        </form>
     </div>
 </div>
 {% endblock %}

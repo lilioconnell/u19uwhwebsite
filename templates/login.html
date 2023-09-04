@@ -4,16 +4,10 @@
 Campaign Info
 {% endblock %}
 
-{% block banner %}
-
-<img src="static/images/coverimage_3.jpeg" alt="Front Banner" class="d-block" style="width:100%;">
-
-    <div class="hero"><h1> Login </h1>
-    </div>
-{% endblock %}
 
 {% block content %}
-<div class="container-lg py-sm-5 py-1">
+<div class="container-fluid py-sm-5 py-1" style="background-color: rgb(3,83,164);">
+
   <div class="news p-4 my-4">
     <h2> Please enter your credentials </h2>
     <div class="alert">{{error}}</div>
@@ -30,7 +24,6 @@ Campaign Info
         <button type="reset" class="btn btn-primary">Reset</button>
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-
     </form>
   </div>
 

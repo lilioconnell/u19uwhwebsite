@@ -26,105 +26,39 @@ Hall of Fame
 {% block content %}
 
 <div class="container-fluid p-3" style="background-color: rgb(3,83,164);">
-    <div class="row p-3">
-        <div class="col-md-4">
-            <div class="card mx-auto">
-            <img class="card-img-top" src="static/images/gretapic.jpg" alt="Picture of Greta" style="width:100%">
-            <h4 class="card-title p-3" style="color: rgb(3,83,164);">Greta Clark</h4>
-            <div class="card-body">
-                <ul style="color: rgb(3,83,164);">
-                    <li>Team captain of Gold Winning U19 Women’s Team 2019</li>
-                    <li>Top U19 girl at world’s 2019</li>
-                    <li>Top strength: flicks</li>
-                    <li>Preferred position: centre</li>
-                    <li>Started playing: 2013</li>
-                </ul>
-                <a href="https://www.instagram.com/gretacclark/" target="_blank" class="btn btn-primary">See Social Media</a>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mx-auto">
-            <img class="card-img-top" src="static/images/campic.jpg" alt="Picture of Cam" style="width:100%">
-            <h4 class="card-title p-3" style="color: rgb(3,83,164);">Cam Arnold</h4>
-                <div class="card-body">
-                    <ul style="color: rgb(3,83,164);">
-                      <li>Assisstant coach to current U19 Girl’s team</li>
-                      <li>Won Bronze with U19 Boys in Hobart 2017</li>
-                      <li>Won CSW UWH Player of the Year twice in a row</li>
-                      <li>Preferred position: Wing</li>
-                    </ul>
-                <a href="https://www.instagram.com/trainthecroc/" target="_blank" class="btn btn-primary">See Social Media</a>
-            </div>
-        </div>
-    </div>
-        <div class="col-md-4">
-            <div class="card mx-auto">
-                <img class="card-img-top" src="static/images/bexpic.jpg" alt="Picture of Bex" style="width:100%">
-                <h4 class="card-title p-3" style="color: rgb(0,109,170);">Rebecca Brosnan</h4>
-                <div class="card-body">
-                    <ul style="color: rgb(0,109,170);">
-                <li> Coach to current U19 Girl’s team</li>
-                <li>Coach to current Women’s Elite Team</li>
-                <li>Multitime World Champion</li>
-                <li>Playing for over 25 years</li>
-            </ul>
-                  <a href="https://www.instagram.com/brosnanrebecca/" target="_blank"  class="btn btn-primary">See Social Media</a>
+
+    {% if session and session['authorisation']  in ['Coach'] %}
+         <div class="news p-4 my-4 text-end">
+        <a class="btn btn-primary" href="{{ url_for('hof_cud', id=0, task='add') }}" method="POST">Add a person</a>
+      </div>
+        {% endif %}
+
+    <div class="container-md">
+        <div class="row p-3">
+            {% for row in halloffame %}
+            <div class="col mb-5">
+                <div class="card mx-auto h-100 mb-3" style="width: 18em;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/'+row['headshot']) }}" alt="">
+                    <h4 class="card-title p-3" style="color: rgb(3,83,164);">{{row['name']}}</h4>
+                    <div class="card-body">
+                        {{row['description'] | replace("\n", "<br>") }}
+                        <br>
+                        <a href={{row['socials']}} target="_blank" class="btn btn-primary mt-3">See Social Media</a>
+                    </div>
+                    {% if session and session['authorisation']  in ['Coach'] %}
+                <div class="news-meta p-2">
+                    <a href="{{ url_for('hof_cud', id=row['hof_id'], task='update') }}" class="btn btn-primary" >Edit</a>
+                    <a href="{{ url_for('hof_cud', id=row['hof_id'], task='delete') }}" class="btn btn-primary" >Delete</a>
+                </div>
+                {% endif %}
                 </div>
             </div>
-        </div>
-</div>
-</div>
-
-
-
-<div class="container-fluid p-3" style="background-color: rgb(0,109,170);">
-    <div class="row p-3">
-        <div class="col-md-4">
-            <div class="card mx-auto">
-                <img class="card-img-top" src="static/images/nickpic.jpg" alt="Picture of Nick" style="width:100%">
-                <h4 class="card-title p-3" style="color: rgb(0,109,170);">Nick Healy</h4>
-                <div class="card-body">
-                    <ul style="color: rgb(0,109,170);">
-                        <li> Head of Crox </li>
-                        <li>Has been to 6 worlds</li>
-                        <li>Currently on Men’s Elite Team</li>
-                        <li>Preferred Position: Wing</li>
-                    </ul>
-                  <a href="https://www.instagram.com/acroxlife/" target="_blank" class="btn btn-primary">See Social Media</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mx-auto">
-                <img class="card-img-top" src="static/images/eloisepic.jpg" alt="Picture of Eloise" style="width:100%">
-                <h4 class="card-title p-3" style="color: rgb(0,109,170);">Eloise Sharpe</h4>
-                <div class="card-body">
-                    <ul style="color: rgb(3,83,164);">
-                        <li>Currently on Elite Women’s Team</li>
-                        <li>Played U24s at 17</li>
-                        <li>Preferred Position: Forward/Centre</li>
-                    </ul>
-                  <a href="https://www.instagram.com/acroxlife/" target="_blank" class="btn btn-primary">See Social Media</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mx-auto">
-                <img class="card-img-top" src="static/images/clarkpic.jpg" alt="Picture of Clark" style="width:100%">
-                <h4 class="card-title p-3" style="color: rgb(0,109,170);">Clark Samuels</h4>
-                <div class="card-body">
-                    <ul style="color: rgb(0,109,170);">
-                        <li>Currently on Men’s Elite Team</li>
-                        <li>Preferred Position: Wing</li>
-                    </ul>
-                  <a href="https://www.instagram.com/acroxlife/" target="_blank" class="btn btn-primary">See Social Media</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+
+
 
 
 

@@ -85,6 +85,7 @@ Training Info
 
     </style>
 
+{% if session and session['authorisation'] in ['Player', 'Coach'] %}
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
   <!-- Indicators/dots -->
@@ -111,77 +112,65 @@ Training Info
         <span class="carousel-control-next-icon"></span>
       </button>
 
+
     <div class="hero"><h1> This Weeks Training </h1>
     </div>
 </div>
 
+
+
+{% for row in training %}
 <div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
-    <h1 class="pb-3" style="color: rgb(198,221,240);"> Week 3 Training </h1>
+    <h1 class="pb-3" style="color: rgb(198,221,240);"> Week {{ row['week_id']}} Training </h1>
 </div>
 
 <div class="container-fluid p-5" style="background-color: rgb(0,109,170);">
-
         <div class="row p-1 align-items-center">
             <div class="col-md-6  p-3 mb-2">
-                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Strength </h4>
-                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 3x 60 min </h4>
+                <h4 style="color: rgb(198,221,240); font-size: 3em; align-text: center;"> Strength </h4>
             </div>
         <div class="col-md-6  p-3 mb-2">
-            <p class="body-text" style="color:rgb(198,221,240);"> Tapper Sessions </p>
+            <p class="body-text" style="color:rgb(198,221,240);"> {{ row['strength'] }} </p>
         </div>
     </div>
-
-            <div class="row p-1 align-items-center">
+         <div class="row p-1 align-items-center">
             <div class="col-md-6  p-3 mb-2">
                 <h4 style="color: rgb(198,221,240); font-size: 3em;"> Pool Sessions </h4>
-                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 2x 60 min | RPE 5-7 </h4>
             </div>
         <div class="col-md-6  p-3 mb-2">
-            <p class="body-text" style="color:rgb(198,221,240);"> Long swim sessions at increasing intensity, still ok to be
-               mainly surface work but start including more UW sets and get
-               more deliberate about the pace you're working at and the rest
-               you are having.  Aim for longer intervals at higher heart
-               rates with relatively short recoveries (not yet sprinting).
-               Incorporate kick work and add resistance (e.g. vertical flutterboards,
-               paddles etc). </p>
+            <p class="body-text" style="color:rgb(198,221,240);"> {{ row['pool'] }} </p>
         </div>
     </div>
-
-                <div class="row p-1 align-items-center">
+         <div class="row p-1 align-items-center">
             <div class="col-md-6  p-3 mb-2">
-                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Cardio  </h4>
-                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 2x 60 min | RPE 5-7 </h4>
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Cardio </h4>
             </div>
         <div class="col-md-6  p-3 mb-2">
-            <p class="body-text" style="color:rgb(198,221,240);"> Increased intensity of cardio.  Move away from lighter forms of cardio
-           to running, biking, rowing to get your HR up and maximise the benefit of
-           your work.  Start incorporating continuous blocks (20-30 mins) at higher
-           pace into these sessions. </p>
+            <p class="body-text" style="color:rgb(198,221,240);"> {{ row['cardio'] }} </p>
         </div>
     </div>
-
-                    <div class="row p-1 align-items-center">
+         <div class="row p-1 align-items-center">
             <div class="col-md-6  p-3 mb-2">
-                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Intervals  </h4>
-                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 1x 60 min; 1x 30 min (or 2x 45 min) | RPE 7-8  </h4>
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Intervals </h4>
             </div>
         <div class="col-md-6  p-3 mb-2">
-            <p class="body-text" style="color:rgb(198,221,240);"> Extend interval lengths and reduce recovery - e.g. 6-12 min intervals with
-           short recoveries about 25% of the working interval duration.  Always warm
-           up and cool down before starting your intervals. </p>
+            <p class="body-text" style="color:rgb(198,221,240);"> {{ row['interval'] }} </p>
         </div>
     </div>
-
-                        <div class="row p-1 align-items-center">
+         <div class="row p-1 align-items-center">
             <div class="col-md-6  p-3 mb-2">
-                <h4 style="color: rgb(198,221,240); font-size: 3em;"> UWH Games  </h4>
-                <h4 style="color: rgb(110,169,216); font-size: 2em;"> 1x 60 min </h4>
+                <h4 style="color: rgb(198,221,240); font-size: 3em;"> Games </h4>
             </div>
         <div class="col-md-6  p-3 mb-2">
-            <p class="body-text" style="color:rgb(198,221,240);"> Add second games night if you can</p>
+            <p class="body-text" style="color:rgb(198,221,240);"> {{ row['games'] }} </p>
         </div>
     </div>
 </div>
+</div>
+{% endfor %}
+{% endif %}
+
+
 
 
 

@@ -4,25 +4,25 @@
 Blog Posting
 {% endblock %}
 
-{% block banner %}
-<img src="static/images/coverimage_1.jpeg" alt="Front Banner" class="d-block" style="width:100%;">
-
-    <div class="hero"><h1> Post a Blog </h1>
-    </div>
-{% endblock %}
-
 {% block content %}
+
 
 <div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
 
   <div class="news p-4 my-4">
     <h2 class="py-3" style="color:rgb(3,83,164);">  Please enter/update your blog post </h2>
-    <form action="{{url_for('blog_cud', id=id, task=task)}}" method="POST">
+    <form action="{{url_for('blog_cud', id=id, task=task)}}" method="POST" enctype="multipart/form-data">
 
       <div mb-3>
         <label for="title" class="form-label">Title</label>
         <input type="text" class="fom-control" id="title" placeholder="" name="title" value="{{title}}" required>
             <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div mb-3>
+      <label for="picture" class="form-label">Add Image (optional)</label>
+      <input class="form-control" type="file" id="picture" name="picture" accept=".png, .jpg,.jpeg" >
+    <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
       </div>
       <div mb-3 mt-3>

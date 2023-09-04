@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add Hall of Fame member
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-3" style="background-color: rgb(3,83,164);">
+
+  <div class="container-lg p-4 my-4" style="background-color: rgb(198,221,240);">
+    <h2 class="py-3" style="color:rgb(3,83,164);">  Please enter details </h2>
+    <form action="{{url_for('hof_cud', id=id, task=task)}}" method="POST" enctype="multipart/form-data">
+
+      <div mb-3>
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="fom-control" id="name" placeholder="" name="name" value="{{name}}" required>
+            <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div mb-3>
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="fom-control" id="description" placeholder="" name="description" value="{{description}}" required>
+            <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div mb-3>
+        <label for="socials" class="form-label">Social Media</label>
+        <input type="text" class="fom-control" id="socials" placeholder="" name="socials" value="{{socials}}" required>
+            <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div mb-3>
+        <label for="headshot" class="form-label">Add Image (optional)</label>
+      <input class="form-control" type="file" id="headshot" name="headshot" value="{{headshot}}" accept=".png, .jpg,.jpeg" >
+          <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+        <div class="text-end">
+          <button type="reset" class="btn btn-primary">Reset</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+
+{% endblock %}

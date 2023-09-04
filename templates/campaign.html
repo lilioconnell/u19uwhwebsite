@@ -5,15 +5,90 @@ Campaign Info
 {% endblock %}
 
 {% block banner %}
+      <img src="static/images/coverimage_11.jpeg" alt="Front banner" class="d-block" style="width:100%">
 
-<img src="static/images/coverimage_11.jpeg" alt="Front Banner" class="d-block" style="width:100%;"></div>
-
-    <div class="hero"><h1 style="color: rgb(255,255,255,0.7);"> World's Campaign </h1></div>
+<div class="container-fluid">
+   <div class="hero"><h1> The Campaign </h1>
+    </div>
+    </div>
 
 
 {% endblock %}
 
 {% block content %}
+
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+    <h1 style="color: rgb(3,83,164);"> Camp Dates </h1>
+    <div class="row p-1 align-items-center">
+        {% for row in camps %}
+               <div class="col-md-6  p-3 mb-2">
+            <h3 style="color: rgb(3,83,164); font-size: 3em;"> {{row['camp_location']}} </h3>
+            <h3 style="color: rgb(3,83,164); font-size: 2em;"> {{row['camp_date']}} </h3>
+            <h3 style="color: rgb(3,83,164); font-size: 2em;"> Estimated cost: ${{row['camp_cost']}} </h3>
+        </div>
+        {% endfor %}
+        {% if session and session['authorisation']  in ['Coach'] %}
+         <div class="news p-4 my-4 text-end">
+        <a class="btn btn-primary" href="{{ url_for('add_camp', id=0, task='add') }}">Add a camp</a>
+      </div>
+        {% endif %}
+    </div>
+</div>
+
+{% if session and session['authorisation']  in ['Player', 'Coach'] %}
+<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
+    <h1 style="color: rgb(3,83,164);"> Register for April Camp </h1>
+    <div class="container-md p-5" style="background-color: rgb(110,169,216);">
+
+
+    <form action="{{url_for('campaign')}}" method="POST">
+
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" id="email" value="{{session['email']}}" name="email" readonly>
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="billet" class="form-label">Will you need billeting?</label>
+      <select class="form-select" id="billet" name="billet" required>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+	<div class="mb-3 mt-3">
+      <label for="billet_number">If you are local and can take billets, how many?</label>
+      <input type="text" class="form-control" id="billet_number" placeholder="..." name="billet_number" >
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="other">Anything else we should know?</label>
+        <textarea class="form-control" rows="3" id="other" name="other"></textarea>
+    </div>
+
+      <div class="text-end">
+        <button type="reset" class="btn btn-primary mt-2">Reset</button>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </div>
+  </form>
+    </div>
+</div>
+{% endif %}
+
+{% if session and session['authorisation']  in ['Coach'] %}
+{% for row in blog %}
+     <div class="container-fluid p-4">
+         <h4> Current Sign Ups </h4>
+                <p class="py-3" style="color:rgb(3,83,164);"> {{ row['email'] }}</p>
+                <p class="py-3" style="color:rgb(3,83,164);"> {{ row['billet'] }}</p>
+                <p class="py-3" style="color:rgb(3,83,164);"> {{ row['billet_number'] }}</p>
+     </div>
+{% endfor %}
+{% endif %}
 
 <div class="container-fluid p-5" style="background-color: rgb(198,221,240);">
 
@@ -27,42 +102,6 @@ Campaign Info
     </div>
 </div>
 
-
-<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
-    <h1 style="color: rgb(3,83,164);"> Important Dates </h1>
-    <div class="row p-1 align-items-center">
-        <div class="col-md-6  p-3 mb-2">
-            <h3 style="color: rgb(3,83,164); font-size: 3em;"> Auckland Camp </h3>
-            <h3 style="color: rgb(3,83,164); font-size: 2em;"> 21st/22nd April </h3>
-            <h3 style="color: rgb(3,83,164); font-size: 2em;"> Est Cost $321 </h3>
-        </div>
-
-        <div class="col-md-6  p-3 mb-2">
-            <h3 style="color: rgb(3,83,164); font-size: 3em;"> Wellington Camp </h3>
-            <h3 style="color: rgb(3,83,164); font-size: 2em;"> 19th-20th July </h3>
-            <h3 style="color: rgb(3,83,164); font-size: 2em;"> Squad Selection Camp </h3>
-        </div>
-    </div>
-
-    <div class="row p-1 align-items-center">
-
-         <div class="col-md-6  p-3 mb-2">
-             <h3 style="color: rgb(3,83,164); font-size: 3em;"> Auckland Camp </h3>
-             <h3 style="color: rgb(3,83,164); font-size: 2em;"> 21st-23rd August </h3>
-             <h3 style="color: rgb(3,83,164); font-size: 2em;"> Est Cost $282 </h3>
-         </div>
-
-         <div class="col-md-6  p-3 mb-2">
-             <h3 style="color: rgb(3,83,164); font-size: 3em;"> Trans Tasmans </h3>
-             <h3 style="color: rgb(3,83,164); font-size: 2em;"> 21st-28th September </h3>
-             <h3 style="color: rgb(3,83,164); font-size: 2em;"> Gold Coast </h3>
-         </div>
-    </div>
-
-    <h3 style="color: rgb(3,83,164); font-size: 3em;"> Age Group World Championships </h3>
-    <h3 style="color: rgb(3,83,164); font-size: 2em;"> 15th-27th July 2024 </h3>
-    <h3 style="color: rgb(3,83,164); font-size: 2em;"> Location TBD </h3>
-</div>
 
 
 <div class="container-fluid p-5" style="background-color: rgb(3,83,164);">
@@ -153,53 +192,7 @@ Campaign Info
           </div>
 </div>
 
-<div class="container-fluid p-5" style="background-color: rgb(110,169,216);">
-    <div class="container-md p-5" style="background-color: rgb(110,169,216);">
-    <h1 style="color: rgb(3,83,164);"> Register for April Camp </h1>
 
-    <form class="f-box mx-auto" action="/action_page.php">
-
-    <div class="mb-3 mt-3">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-
-    <div class="mb-3 mt-3">
-      <label for="email">Email:</label>
-      <div class="input-group mb-3">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-        <span class="input-group-text">@example.com</span>
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Please fill out this field.</div>
-      </div>
-    </div>
-
-    <div class="mb-3 mt-3">
-      <label for="needbillet" class="form-label">Will you need billeting?</label>
-      <select class="form-select" id="needbillet" name="needbillet" required>
-        <option>Yes</option>
-        <option>No</option>
-      </select>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-
-	<div class="mb-3 mt-3">
-      <label for="billets">If you are local and can take billets, how many?</label>
-      <input type="text" class="form-control" id="billets" placeholder="..." name="billets">
-    </div>
-
-    <div class="mb-3 mt-3">
-        <label for="comment">Anything else we should know?</label>
-        <textarea class="form-control" rows="3" id="comment" name="text"></textarea>
-    </div>
-
-      <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
-  </form>
-    </div>
-</div>
 
 
 
