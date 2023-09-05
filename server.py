@@ -233,9 +233,9 @@ def blog_cud():
     # have an id and a task key
     if request.method == "GET":
         if data['task'] == 'delete':
-            sql = "delete from blog and comments where blog_id = ?"
+            sql = "delete from blog where blog_id = ?"
             values_tuple = (data['id'],)
-            result_one = run_commit_query(sql, values_tuple, db_path)
+            result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('blog'))
         elif data['task'] == 'update':
             sql = """ select title, content from blog where blog_id=?"""
