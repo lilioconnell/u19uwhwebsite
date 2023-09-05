@@ -2,12 +2,13 @@
 Base styles
 ------------------------*/
 
+
 body
 {
 	margin: 0;
 	padding: 0;
-	color: #eee;
-	background-color: #93a19d;
+	color:rgb(198,221,240);
+	background-color: rgb(12,54,131);
 	font-family: 'Fira Sans', sans-serif;
 	font-size: 100%;
 }
@@ -30,6 +31,14 @@ p
 {
 	margin: 0 0 1.5em;
 	line-height: 1.5;
+}
+
+
+video{
+    max-height: 300px;
+    display: block;
+    margin:auto;
+    margin-bottom: 1em;
 }
 
 blockquote
@@ -70,11 +79,11 @@ th, td
     table-layout: fixed; 
 }
 
-a:link { color: rgb(107, 96, 84); }
-a:visited { color: rgb(146, 148, 135); }
-a:focus { color: rgb(161, 176, 171); }
-a:hover { color: rgb(195, 218, 195); }
-a:active { color: rgb(213, 236, 212); }
+a:link { color: rgb(198,221,240); }
+a:visited { color: rgb(3,83,164); }
+a:focus { color: rgb(0,109,170); }
+a:hover { color: rgb(12,54,131); }
+a:active { color: rgb(110,169,216); }
 
 /* -----------------------
 Layout styles
@@ -84,21 +93,23 @@ Layout styles
 {
 	max-width: 80em;
 	margin: 0 auto;
-	background-color: #98a6a2;
+	background-color: rgb(12,54,131);
+
 }
 
 .header
 {
-	color: #fff;
-	background: #98a6a2;
+	color: rgb(198,221,240);
+	background: rgb(12,54,131);
 	padding: 1em 1.25em;
 }
 
 .header-heading { margin: 0; }
 
+
 .nav-bar
 {
-	background: #6b6065;
+	background: rgb(3,83,164);
 	padding: 0;
 }
 
@@ -106,8 +117,8 @@ Layout styles
 
 .footer
 {
-	color: #fff;
-	background: #6b6065;
+	color: rgb(198,221,240);
+	background: rgb(12,54,131);
 	padding: 1em 1.25em;
 }
 
@@ -128,34 +139,38 @@ Nav
 	margin: 0;
 }
 
+
 .nav a
 {
 	display: block;
 	padding: .7em 1.25em;
-	color: #fff;
+	color: rgb(198,221,240);
 	text-decoration: none;
 	border-bottom: 1px solid #c3dac3;
 }
 
-.nav a:link { color: #d5ecd4; }
-.nav a:visited { color: #a1b0ab; }
+
+
+.nav a:link { color: rgb(198,221,240); }
+.nav a:visited { color: white; }
 
 .nav a:focus
 {
 	color: white;
-	background-color: #6b6054;
+	background-color: rgb(0,109,170);
 }
 
 .nav a:hover
 {
 	color: white;
-	background-color: #9ca193;
+	background-color: rgb(12,54,131);
 }
+
 
 .nav a:active
 {
 	color: white;
-	background-color: #a1b0ab;
+	background-color: rgb(198,221,240);
 }
 /* -----------------------
 column styles
@@ -180,8 +195,8 @@ Single styles
 
 .btn
 {
-	color: #fff !important;
-	background-color: #6b6054;
+	color: rgb(198,221,240) !important;
+	background-color: rgb(12,54,131);
 	border-color: #222;
 	display: inline-block;
 	padding: .5em 1em;
@@ -199,20 +214,21 @@ Single styles
 
 .btn:hover
 {
-	color: #fff !important;
-	background-color: #9ca193;
+	color: rgb(198,221,240) !important;
+	background-color: rgb(110,169,216);
 }
+
 
 .btn:focus
 {
-	color: #fff !important;
-	background-color: #a1b0ab;
+	color: rgb(198,221,240) !important;
+	background-color: rgb(0,109,170);
 }
 
 .btn:active
 {
-	color: #fff !important;
-	background-color: #c3dac3;
+	color: rgb(198,221,240) !important;
+	background-color: rgb(3,83,164);
 }
 
 .table
